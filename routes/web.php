@@ -25,3 +25,7 @@ Route::get('/', 'HomePageController@index');
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
 });
+
+Route::group(['prefix' => 'user'],function(){
+  Route::get('/', 'User\DashboardController@index');
+});
