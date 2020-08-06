@@ -1,7 +1,6 @@
 @extends('user.layout.master')
 @section('content')
 
-
 <!----content start---->
 <div>
     <ul class="breadcrumb">
@@ -26,9 +25,18 @@
             </div>
         </div>
         <h3>
-                            </h3>
+                <?php
+                    //$msg=$this->session->userdata('message');
+                    $msg = '';
+                    if($msg)
+                    {
+                        echo $msg;
+                        //$this->session->unset_userdata('message');
+                    }
+                ?>
+            </h3>
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="http://localhost/irsbd/super_user/save_submitted_paper" method="post">
+            <form class="form-horizontal" enctype="multipart/form-data" action="super_user/save_submitted_paper" method="post">
                 <fieldset>
                     <legend></legend>
                       <div class="control-group">
@@ -127,27 +135,6 @@
         </div>
     </div><!--/span-->
 
-</div><!--/row-->                        
-			<!-- content ends -->
-			</div><!--/#content.span10-->
-				</div><!--/fluid-row-->
-				
-		<hr>
+</div><!--/row-->
 
-		<div class="modal hide fade" id="myModal">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">Ã—</button>
-				<h3>Settings</h3>
-			</div>
-			<div class="modal-body">
-				<p>Here settings can be configured...</p>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn" data-dismiss="modal">Close</a>
-				<a href="#" class="btn btn-primary">Save changes</a>
-			</div>
-		</div>
-
-
-        
  @endsection       

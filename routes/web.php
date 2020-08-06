@@ -41,4 +41,8 @@ Route::group(['prefix' => 'admin'],function(){
 
 Route::group(['prefix' => 'user'],function(){
   Route::get('/', 'User\DashboardController@index');
+  Route::get('/submit_paper', 'Admin\UserPaperController@create');
+  Route::get('/view_submitted_paper/{id}', 'Admin\UserPaperController@show');
+  Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
+  Route::get('/change_pass', 'User\UserController@index');
 });
