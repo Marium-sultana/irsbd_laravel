@@ -22,6 +22,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function login()
+    {
+        return view('user.user_login');
+    }
+
     public function create()
     {
         //

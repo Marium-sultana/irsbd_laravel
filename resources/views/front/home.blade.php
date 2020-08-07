@@ -1,5 +1,8 @@
 @extends('front.layout.master')
 @section('content')
+
+
+
 <meta name="keywords" content= "IJIR"> 
            <meta name="keywords" content=" International Journal of Innovative Research (IJIR)">
             <meta name="description" content="International Journal of Innovative Research (IJIR) is an open-access triannual (three times in a year), peer-reviewed and multidisciplinary journal devoted to publication of original research articles, short communication and reviews on all aspects of innovative research. It is published by the Innovative Research Syndicate (IRS). " />
@@ -75,4 +78,7 @@
 	  
 </table>
     </div></div>
+
+
+
 @endsection

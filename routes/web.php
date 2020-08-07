@@ -21,6 +21,14 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomePageController@index');
+Route::get('/irs_member', 'HomePageController@member');
+Route::get('/editorial_team', 'HomePageController@editorial_team');
+Route::get('/current', 'HomePageController@current');
+Route::get('/archive', 'HomePageController@archive');
+Route::get('/user_registration', 'HomePageController@user_registration');
+Route::get('/contact', 'HomePageController@contact');
+
+
 
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
@@ -39,10 +47,13 @@ Route::group(['prefix' => 'admin'],function(){
   Route::get('/editorial_team/{id}', 'Admin\EditorialTeamController@edit');
 });
 
+
+
 Route::group(['prefix' => 'user'],function(){
   Route::get('/', 'User\DashboardController@index');
   Route::get('/submit_paper', 'Admin\UserPaperController@create');
   Route::get('/view_submitted_paper/{id}', 'Admin\UserPaperController@show');
   Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
   Route::get('/change_pass', 'User\UserController@index');
+  Route::get('/login', 'User\UserController@login');
 });
