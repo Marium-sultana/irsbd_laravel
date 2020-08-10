@@ -3,7 +3,7 @@
 <noscript>
                 <div class="alert alert-block span10">
                     <h4 class="alert-heading">Warning!</h4>
-                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                    <p>You need to have <a href="#" target="_blank">JavaScript</a> enabled to use this site.</p>
                 </div>
                 </noscript>
 
@@ -11,13 +11,14 @@
                     <!-- content starts -->
 
                     
-<div>
+
+                    <div>
     <ul class="breadcrumb">
         <li>
             <a href="#">Home</a> <span class="divider">/</span>
         </li>
         <li>
-            <a href="#">Add Journal File</a>
+            <a href="#">Upload Paper</a>
         </li>
     </ul>
 </div>
@@ -25,7 +26,7 @@
 <div class="row-fluid sortable">
     <div class="box span12">
         <div class="box-header well" data-original-title>
-            <h2><i class="icon-edit"></i>Add Journal File</h2>
+            <h2><i class="icon-edit"></i>Upload Paper</h2>
             
             <div class="box-icon">
                 <a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -35,30 +36,78 @@
         </div>
         <h3>
                 <?php
-                    //$msg=$this->session->userdata('message');
-                    $msg = '';
+                   // $msg=$this->session->userdata('message');
+                   $msg = '';
                     if($msg)
                     {
-                        echo $msg;
-                        //$this->session->unset_userdata('message');
+                       // echo $msg;
+                       // $this->session->unset_userdata('message');
                     }
                 ?>
             </h3>
+           
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="super_admin/save_journal_file" method="post">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+                 <ul>
+                    @foreach($errors->all() as $error)
+                       <li style="padding:10px">{{$error}}</li>
+                    @endforeach
+                 </ul>
+            </div>
+            @endif
+      <!---{!!Form::open(['url' => 'admin/add_journal', 'method'=>'post']) !!}-->
+           <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/add_journal')}}" method="post">
+                @csrf    
                 <fieldset>
                     <legend></legend>
-                  
-                 
-                    
-                     <div class="control-group">
-                        <label class="control-label" for="typeahead">Select File </label>
+                    <div class="control-group">
+                   <!---- {!!Form::label('typeahead', 'Title',['class' => 'control-label']); !!}--->
+                        <label class="control-label" for="typeahead">Title  </label>
                         <div class="controls">
-                            <input type="file" class="span6"  name="seleced_file">
+                            <input type="text" class="span6 typeahead" id="typeahead"  name="paper_title">
                             
                         </div>
                     </div>
-                
+                    <div class="control-group">
+                        <label class="control-label" for="typeahead">Author Name </label>
+                        <div class="controls">
+                            <input type="text" class="span6 typeahead" id="typeahead"  name="author_name">
+                            
+                        </div>
+                    </div>
+                    
+                     <div class="control-group">
+                        <label class="control-label" for="textarea2">Abstract</label>
+                        <div class="controls">
+                            <textarea class="cleditor" id="textarea2" rows="3" name="abstract"></textarea>
+                        </div>
+                    </div>
+                   
+                   <div class="control-group">
+                        <label class="control-label" for="typeahead">Issue  </label>
+                        <div class="controls">
+                            <select name="issue_id">
+                                <option>Select Issue....</option>
+                                <?php
+                                foreach($all_issue as $v_issue)
+                                {
+                                ?>
+                                <option value="<?php echo $v_issue->issue_id;?>"><?php echo $v_issue->issue_name;?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label" for="typeahead">Main Manuscript </label>
+                        <div class="controls">
+                            <input type="file" class="span6"   name="selected_file">
+                            
+                        </div>
+                    </div>
+                   
+                   
                    
                     
                     <div class="form-actions">

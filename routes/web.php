@@ -36,9 +36,12 @@ Route::group(['prefix' => 'admin'],function(){
   Route::get('/manage_journals', 'Admin\UploadedPaperController@index');
   Route::get('/add_banner', 'Admin\BannerImageController@index');
   Route::get('/cover_image', 'Admin\CoverImageController@index');
-  Route::get('/add_journal', 'Admin\IssueController@index');
+
+  Route::get('/add_journal', 'Admin\UploadedPaperController@create');
+  Route::post('/add_journal', 'Admin\UploadedPaperController@store');
+
   Route::get('/send_mail', 'Admin\MailController@index'); 
-  Route::get('/add_issue', 'Admin\IssueController@store');
+  Route::get('/add_issue', 'Admin\IssueController@create');
   Route::get('/manage_issue', 'Admin\IssueController@show'); 
   Route::get('/call_paper', 'Admin\CallPaperController@index');
   Route::get('/wise_word', 'Admin\WiseWordController@index');

@@ -4,16 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Issue;
 
 class IssueController extends Controller
 {
     public function index()
     {
-        return view('admin.add_journal');
+      
     }
-    public function store()
+    public function create()
     {
         return view('admin.add_issue');
+    }
+    public function store(Request $request)
+    {
+        $issue = new Issue();
     }
     public function show()
     {
