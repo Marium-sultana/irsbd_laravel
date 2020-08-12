@@ -18,7 +18,18 @@ class IssueController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'issue_name'=>'required',
+            'year' => 'required|numeric'
+        ],[
+            'issue_name.required' => 'Issue field must be required',
+            'year.numeric' => 'Year field must be in number'
+        ]);
         $issue = new Issue();
+        $issue->issue_name = $request->issue_name;
+        $issue->year = $request->year;
+        $issue->save();
+        return redirect()->action('Admin\IssueController@create')->with('success', 'Issue Create successfully');
     }
     public function show()
     {

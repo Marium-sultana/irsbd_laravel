@@ -85,17 +85,12 @@
                     </div>
                    
                    <div class="control-group">
-                        <label class="control-label" for="typeahead">Issue  </label>
+                   {!! Form::label('typeahead', 'Issue', ['class'=>'control-label mb-1']); !!}
+                        <!---<label class="control-label" for="typeahead">Issue  </label>-->
                         <div class="controls">
-                            <select name="issue_id">
-                                <option>Select Issue....</option>
-                                <?php
-                                foreach($all_issue as $v_issue)
-                                {
-                                ?>
-                                <option value="<?php echo $v_issue->issue_id;?>"><?php echo $v_issue->issue_name;?></option>
-                                <?php } ?>
-                            </select>
+                        {!! Form::select('issue[]', $issue,null, ['class'=>'form-control myselect','name'=>'issue_id',
+                                          'placeholder'=>'Select Issue']) !!}
+                      
                         </div>
                     </div>
                     

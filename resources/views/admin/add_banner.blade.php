@@ -45,7 +45,8 @@
                 ?>
             </h3>
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="super_admin/save_banner_image" method="post">
+            <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/add_banner')}}" method="post">
+            @csrf
                 <fieldset>
                     <legend></legend>
                    
