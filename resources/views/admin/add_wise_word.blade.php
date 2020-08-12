@@ -45,7 +45,17 @@
                 ?>
             </h3>
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="super_admin/save_wise_word" method="post">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+                 <ul>
+                    @foreach($errors->all() as $error)
+                       <li style="padding:10px">{{$error}}</li>
+                    @endforeach
+                 </ul>
+            </div>
+            @endif
+            <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/wise_word')}}" method="post">
+            @csrf
                 <fieldset>
                     <legend></legend>
                   

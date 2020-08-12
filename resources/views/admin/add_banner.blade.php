@@ -45,6 +45,15 @@
                 ?>
             </h3>
         <div class="box-content">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+                 <ul>
+                    @foreach($errors->all() as $error)
+                       <li style="padding:10px">{{$error}}</li>
+                    @endforeach
+                 </ul>
+            </div>
+            @endif
             <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/add_banner')}}" method="post">
             @csrf
                 <fieldset>
@@ -55,7 +64,7 @@
                      <div class="control-group">
                         <label class="control-label" for="typeahead">Update Issue Image </label>
                         <div class="controls">
-                            <input type="file" class="span6"  name="seleced_file">
+                            <input type="file" class="span6"  name="selected_file">
                             
                         </div>
                     </div>

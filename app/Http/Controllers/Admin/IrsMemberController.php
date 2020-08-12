@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\IrsMember;
 
 class IrsMemberController extends Controller
 {
@@ -14,7 +16,7 @@ class IrsMemberController extends Controller
      */
     public function index()
     {
-        return view('admin.add_member');
+        
     }
 
     /**
@@ -24,7 +26,7 @@ class IrsMemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add_member');
     }
 
     /**
@@ -35,7 +37,41 @@ class IrsMemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+             'member_name' => 'required',
+             'member_contact_no' => 'required',
+             'member_email' => 'required',
+             'member_image' => 'required',
+             'member_profile_link' => 'required'
+        ],[
+             'member_name.required' => 'Name field must be required',
+             'member_contact_no.required' => 'Contact field must be required',
+             'member_email.required' => 'Email field must be required',
+             'member_profile_link.required' => 'Profile Link field must be required'
+             
+        ]);
+
+        Validator::make($request->all(),['member_image'=>"required|mimes:png,jpeg,jpg|max:2048"])->validate();
+
+        $irsMember = new IrsMember();
+        $irsMember->member_name = $request->member_name;
+        $irsMember->member_designation = $request->member_designation;
+        //$irsMember->member_image = '';
+        $irsMember->member_contact_no = $request->member_contact_no;
+        $irsMember->member_email = $request->member_email;
+        $irsMember->member_profile_link = $request->member_profile_link; 
+        
+        if($request->hasFile('member_image')){
+            $fileName = $request->member_image->getClientOriginalName();
+            $filePath = $request->member_image->storeAs('member_images',$fileName,'public');
+            $irsMember->member_image = '/storage/member_images/' .$fileName;
+            $irsMember->save();
+            return back()->with('success', 'Image has been uploaded.')
+                         ->with('file', $fileName);  
+        }
+        
+        $irsMember->save();
+        return redirect()->action('Admin\IrsMemberController@create');
     }
 
     /**

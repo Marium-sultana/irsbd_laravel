@@ -20,10 +20,7 @@ class UploadedPaperController extends Controller
 
     public function create()
     {
-      //  $all_issue = [];
-       // $data =['all_issue' => $all_issue];
         $issue = Issue::pluck('issue_name','id');
-        //dd($issue);
         return view('admin.add_journal',compact('issue'));
     }
 
@@ -33,11 +30,9 @@ class UploadedPaperController extends Controller
         $this->validate($request,[
             'paper_title'=>'required',
             'selected_file'=>'required'
-           //'selected_file.*'=>'mimes:doc,pdf'
         ],[
            'paper_title.required'=>'Title Field is required',
            'selected_file.required'=>'File must be selected and file format must be in pdf or doc'
-           //'paper_title.alpha_num'=>'This field accept only alpha numeric characters'
         ]);
         $uploadedPaper = new UploadedPaper();
         $uploadedPaper->paper_title = $request->paper_title;

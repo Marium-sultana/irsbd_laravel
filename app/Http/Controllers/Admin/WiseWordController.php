@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\WiseWord;
 
 class WiseWordController extends Controller
 {
@@ -35,7 +36,19 @@ class WiseWordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'text'=>'required',
+            'writer'=>'required'
+        ],[
+            'text.required' => 'Text field must be included',
+             'writer.required' => 'Writer field must be included'
+        ]);
+        $wiseWord = new WiseWord();
+        $wiseWord->text = $request->text;
+        $wiseWord->writer = $request->writer;
+        $wiseWord->save();
+
+        return redirect()->action('Admin\WiseWordController@index');
     }
 
     /**
