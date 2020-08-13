@@ -26,18 +26,15 @@
             </tr>
         </thead>   
         <tbody>
-            <?php
-                foreach($all_journal as $v_journal)
-                {
-            ?>
+                @foreach($data as $i=>$paper)
             <tr>
-                <td><?php echo $v_journal->paper_id?></td>
-                <td><?php echo $v_journal->paper_title?></td>
+                <td>{{ ++$i }}</td>
+                <td>{{ $paper->paper_title}}</td>
                
-                <td class="center"><a href="<?php echo base_url().$v_journal->file_location?>" class="rm">Download</a></td>
-                 <td class="center"><?php echo $v_journal->author_name?></td>
-                  <td><?php echo $v_journal->abstract?></td>
-                  <td><?php echo $v_journal->issue_id?></td>
+                <td class="center"><a href="{{$paper->file_location}}" class="rm">Download</a></td>
+                 <td class="center">{{ $paper->author_name}}</td>
+                  <td>{{$paper->abstract}}</td>
+                  <td>{{$issue[$paper->issue_id]}}</td>
        
         
                
@@ -45,22 +42,22 @@
              
                  
                     
-                    <a class="btn btn-danger" href="<?php echo base_url();?>super_admin/delete_journal/<?php echo $v_journal->paper_id?>" title="Delete" onclick="return check_delete();">
+                    <a class="btn btn-danger" href="super_admin/delete_journal/<?php echo $paper->paper_id?>" title="Delete" onclick="return check_delete();">
                         <i class="icon-trash icon-white"></i> 
                      
                     </a>
                      
-                 <a class="btn btn-primary" href="<?php echo base_url();?>super_admin/edit_journal/<?php echo $v_journal->paper_id?>" title="Edit">
+                 <a class="btn btn-primary" href="super_admin/edit_journal/<?php echo $paper->paper_id?>" title="Edit">
        
                         <i class="icon-check icon-white"></i>  
 						
                     </a>
-                    <?php } ?>
+                    
                     
                     
                 </td>
             </tr>
-              
+            @endforeach  
         </tbody>
     </table>            
 </div>
