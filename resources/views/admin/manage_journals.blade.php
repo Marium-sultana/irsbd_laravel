@@ -11,7 +11,12 @@
                     <!-- content starts -->
 
                     <div class="box-content">
-    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
+      <table class="table table-striped table-bordered bootstrap-datatable datatable">
         <thead>
             <tr>
                 <th>Paper Id</th>
@@ -39,15 +44,16 @@
         
                
                 <td class="center">
-             
-                 
+                   {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_journals/delete/'.$paper->id],'style'=>'display:inline'])!!}
+                  {!! Form::button('<i class="icon-trash icon-white"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] ) !!}
+                   {!! Form::close()!!}
                     
-                    <a class="btn btn-danger" href="super_admin/delete_journal/<?php echo $paper->paper_id?>" title="Delete" onclick="return check_delete();">
+                    <!---<a class="btn btn-danger" href="{{url('admin/manage_journals/delete/'.$paper->id)}}" method="delete" title="Delete" onclick="return check_delete();">
                         <i class="icon-trash icon-white"></i> 
                      
-                    </a>
+                    </a>-->
                      
-                 <a class="btn btn-primary" href="super_admin/edit_journal/<?php echo $paper->paper_id?>" title="Edit">
+                 <a class="btn btn-primary" href="{{url('admin/edit_journal/'.$paper->id)}}" title="Edit">
        
                         <i class="icon-check icon-white"></i>  
 						

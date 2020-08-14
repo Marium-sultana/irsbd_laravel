@@ -34,7 +34,12 @@ Route::get('/contact', 'HomePageController@contact');
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
   Route::get('/manage_papers', 'Admin\UserPaperController@index');
+
   Route::get('/manage_journals', 'Admin\UploadedPaperController@index');
+  Route::get('/edit_journal/{id}', 'Admin\UploadedPaperController@edit');
+  Route::put('/edit_journals/edit/{id}',['uses'=>'Admin\UploadedPaperController@update','as'=>'journalPaper-update']);
+  Route::delete('/manage_journals/delete/{id}', 'Admin\UploadedPaperController@destroy');
+  
 
   Route::get('/add_banner', 'Admin\BannerImageController@index');
   Route::post('/add_banner', 'Admin\BannerImageController@store');

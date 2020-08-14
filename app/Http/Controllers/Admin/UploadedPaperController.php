@@ -13,20 +13,12 @@ class UploadedPaperController extends Controller
 {
     public function index()
     {
-          // $all_journal = [];
-        $data = UploadedPaper::all('id','paper_title','author_name','abstract','issue_id','file_location');
-        // dd($data);
-       //$issue = Issue::pluck('issue_name','id');
-      // dd($issue[1]);
-     // $issue_data = UploadedPaper::with('Issue')->get();
-    //dd($issue_data);
+      $data = UploadedPaper::all('id','paper_title','author_name','abstract','issue_id','file_location');
       $issue_data = Issue::all();
       $issue = [];
       foreach($issue_data as $value){
           $issue[$value->id] = $value->issue_name;
       }
- //$results = UploadedPaper::with('Issue')->get();
-//dd($results);
         return view('admin.manage_journals',compact('data','issue'));
     }
 
@@ -58,18 +50,32 @@ class UploadedPaperController extends Controller
         if($request->selected_file){ 
             $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
             $filePath = $request->selected_file->storeAs('papers', $fileName, 'public');
-            $uploadedPaper->file_location = '/storage/papers/' .$fileName;
-            $uploadedPaper->save();
-            return back()->with('success', 'Filehas been uploaded.')
-                         ->with('file', $fileName);  
-         }
-
-         foreach($request->issue as $value){
-             $uploadedPaper->attachIssue($value);
-
+            $uploadedPaper->file_location = '/storage/papers/' .$fileName;  
          }
        
         $uploadedPaper->save();
-        return redirect()->action('Admin\UploadedPaperController@create')->with('success', 'Paper submitted successfully');
+        return redirect()->action('Admin\UploadedPaperController@index')->with('success', "Paper submitted successfully");
+         
+    }
+
+    public function edit($id)
+    {
+        $uploadedPaper = UploadedPaper::find($id);
+        return view('admin.edit_journal',compact('uploadedPaper'));
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        $uploadedPaper = UploadedPaper::find($id);
+        $uploadedPaper->delete();
+        //dd($uploadedPaper);
+        return redirect()->action('Admin\UploadedPaperController@index')->with('success', "Paper deleted successfully");
+
     }
     }
