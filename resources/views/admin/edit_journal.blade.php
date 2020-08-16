@@ -43,29 +43,31 @@
             ?>
         </h3>
         <div class="box-content">
-        {!! Form::model($uploadedPaper,['route'=>['journalPaper-update',$uploadedPaper->id],
-                        'class'=>'form-horizontal','enctype'=>'multipart/form-data','name'=>'edit_journal','method'=>'post']) !!}
-          <!---<form name="edit_journal" class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/edit_journal')}}" method="post">--->
+        <!--{!! Form::model($uploadedPaper,['route'=>['journalPaper-update',$uploadedPaper->id],
+                        'class'=>'form-horizontal','enctype'=>'multipart/form-data','name'=>'edit_journal','method'=>'put']) !!}-->
+          <form name="edit_journal" class="form-horizontal" enctype="multipart/form-data" action="{{route('journalPaper-update',$uploadedPaper->id)}}" method="post">
+          
           @csrf
+          
                 <fieldset>
                     <legend></legend>
                     <div class="control-group">
-                    {!!Form::label('paper_title', 'Title',['class' => 'control-label','for'=>'paper_title']); !!}
-                        <!---<label class="control-label" for="typeahead">Title </label>--->
+                   <!--- {!!Form::label('paper_title', 'Title',['class' => 'control-label','for'=>'paper_title']); !!}-->
+                        <label class="control-label" for="typeahead">Title </label>
                         <div class="controls">
-                        {!!Form::text('paper_title', null,['class' => 'span6 typeahead','id'=>'paper_title']); !!}
-                           <!-- <input type="text" class="span6 typeahead" id="typeahead"  name="paper_title" value="">
-                            <input type="hidden" class="span6 typeahead" id="typeahead"  name="paper_id" value="">-->
+                        <!---{!!Form::text('paper_title', $uploadedPaper->paper_title,['class' => 'span6 typeahead','id'=>'paper_title']); !!}-->
+                           <input type="text" class="span6 typeahead" id="typeahead"  name="paper_title" value="{{$uploadedPaper->paper_title}}">
+                           <!--  <input type="hidden" class="span6 typeahead" id="typeahead"  name="paper_id" value="">-->
 
                         </div>
                     </div>
               
                         <div class="control-group">
-                    {!!Form::label('author_name', 'Author Name',['class' => 'control-label','for'=>'author_name']); !!}
-                        <!---<label class="control-label" for="textarea2">Author Name</label>--->
+                    <!--- {!!Form::label('author_name', 'Author Name',['class' => 'control-label','for'=>'author_name']); !!}--->
+                        <label class="control-label" for="textarea2">Author Name</label>
                         <div class="controls">
-                        {!!Form::text('author_name', null,['class' => 'span6 typeahead','id'=>'author_name']); !!}
-                            <!--- <input type="text" class="span6 typeahead" id="typeahead"  name="author_name" value="">--->
+                       <!---  {!!Form::text('author_name', null,['class' => 'span6 typeahead','id'=>'author_name']); !!}--->
+                            <input type="text" class="span6 typeahead" id="typeahead"  name="author_name" value="{{$uploadedPaper->author_name}}">
                                
                             </textarea>
                         </div>
@@ -75,25 +77,12 @@
               
                     
                     
-                     @if($uploadedPaper -> file_location)
                     <div class="control-group">
-                        <label class="control-label" for="typeahead"> File </label>
-                        <div class="controls">
-                         
-                            
-                            <a href="super_admin/delete_journal_file/">Delete File</a>
-
-                        </div>  
-                   
-                    @else
-              
-                         <div class="control-group">
                         <label class="control-label" for="typeahead">Main Manuscript file </label>
                         <div class="controls">
                             <input type="file" class="span6"   name="selected_file">
                             
                         </div>
-                          @endif
                     </div>
                    
                    

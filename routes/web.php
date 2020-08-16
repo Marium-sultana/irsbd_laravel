@@ -37,7 +37,8 @@ Route::group(['prefix' => 'admin'],function(){
 
   Route::get('/manage_journals', 'Admin\UploadedPaperController@index');
   Route::get('/edit_journal/{id}', 'Admin\UploadedPaperController@edit');
-  Route::put('/edit_journals/edit/{id}',['uses'=>'Admin\UploadedPaperController@update','as'=>'journalPaper-update']);
+  //Route::get('/edit_journal/delete/{id}', 'Admin\UploadedPaperController@delete_file');
+  Route::post('/edit_journals/edit/{uploadedPaper}',['uses'=>'Admin\UploadedPaperController@update','as'=>'journalPaper-update']);
   Route::delete('/manage_journals/delete/{id}', 'Admin\UploadedPaperController@destroy');
   
 

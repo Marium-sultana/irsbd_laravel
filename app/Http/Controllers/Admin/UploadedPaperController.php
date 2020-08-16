@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\UploadedPaper;
 use App\Issue;
 use App\File;
+//use App\Storage;
 
 class UploadedPaperController extends Controller
 {
@@ -50,7 +52,7 @@ class UploadedPaperController extends Controller
         if($request->selected_file){ 
             $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
             $filePath = $request->selected_file->storeAs('papers', $fileName, 'public');
-            $uploadedPaper->file_location = '/storage/papers/' .$fileName;  
+            $uploadedPaper->file_location = $fileName;  
          }
        
         $uploadedPaper->save();
@@ -65,10 +67,40 @@ class UploadedPaperController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, UploadedPaper $uploadedPaper)
     {
-        //
+        //dd($uploadedPaper->id);
+       // $uploadedPaper = new UploadedPaper();
+        //dd($request->all());
+       // $uploadedPaper->update(['paper_title' => $request->paper_title]);
+        //$uploadedPaper->update(['author_name' => $request->author_name]);
+       // dd($uploadedPaper);
+       // $uploadedPaper->update(['file_location' => '']);
+       
+        if($request->selected_file){ 
+           // dd($request->selected_file);
+            $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
+            $filePath = $request->selected_file->storeAs('papers', $fileName, 'public');
+           // $uploadedPaper->update(['file_location' => $fileName]);
+         }
+
+         $submittedData = [
+             
+                'paper_title' => $request->paper_title,
+                'author_name' => $request->author_name,
+                'file_location' => $fileName
+             
+            
+         ];
+        $uploadedPaper->update([$submittedData]);
+        $uploadedPaper = UploadedPaper::find($uploadedPaper->id)->update($submittedData);
+         //dd($submittedData,$uploadedPaper);
+
+        return redirect()->action('Admin\UploadedPaperController@index')->with('success', "Paper updated successfully");
+
     }
+
+   
 
     public function destroy($id)
     {
