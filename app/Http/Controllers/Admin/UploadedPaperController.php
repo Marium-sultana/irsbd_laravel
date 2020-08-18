@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +53,7 @@ class UploadedPaperController extends Controller
         if($request->selected_file){ 
             $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
             $filePath = $request->selected_file->storeAs('papers', $fileName, 'public');
-            $uploadedPaper->file_location = $fileName;  
+            $uploadedPaper->file_location = $fileName; 
          }
        
         $uploadedPaper->save();
@@ -63,35 +64,58 @@ class UploadedPaperController extends Controller
     public function edit($id)
     {
         $uploadedPaper = UploadedPaper::find($id);
+       //dd($uploadedPaper);
         return view('admin.edit_journal',compact('uploadedPaper'));
 
     }
 
     public function update(Request $request, UploadedPaper $uploadedPaper)
     {
-        //dd($uploadedPaper->id);
+              //dd($uploadedPaper->id);
        // $uploadedPaper = new UploadedPaper();
         //dd($request->all());
        // $uploadedPaper->update(['paper_title' => $request->paper_title]);
-        //$uploadedPaper->update(['author_name' => $request->author_name]);
+       // $uploadedPaper->update(['author_name' => $request->author_name]);
        // dd($uploadedPaper);
        // $uploadedPaper->update(['file_location' => '']);
-       
+       $this->validate($request,[
+        'paper_title'=>'required',
+        'selected_file'=>'required'
+    ],[
+       'paper_title.required'=>'Title Field is required',
+       'selected_file.required'=>'File must be selected and file format must be in pdf or doc'
+    ]);
+    Validator::make($request->all(),['selected_file'=>"required|mimes:pdf,zip,docx|max:2048"])->validate();
+
         if($request->selected_file){ 
-           // dd($request->selected_file);
+           // dd('true');
+           //@unlink(public_path('/storage/papers/'.$uploadedPaper->file_location));
+           Storage::disk('public')->delete('/papers/' . $uploadedPaper->file_location);
+
             $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
             $filePath = $request->selected_file->storeAs('papers', $fileName, 'public');
            // $uploadedPaper->update(['file_location' => $fileName]);
+          // Storage::delete('/storage/app/public/papers/'.$fileName); 
+          $submittedData = [
+             
+            'paper_title' => $request->paper_title,
+             'author_name' => $request->author_name,
+             'file_location' => $fileName
+          
+      ];
          }
-
-         $submittedData = [
+         else{
+            // dd('false');
+            $submittedData = [
              
                 'paper_title' => $request->paper_title,
-                'author_name' => $request->author_name,
-                'file_location' => $fileName
-             
-            
-         ];
+                 'author_name' => $request->author_name
+                
+              
+          ];
+         }
+
+         
         $uploadedPaper->update([$submittedData]);
         $uploadedPaper = UploadedPaper::find($uploadedPaper->id)->update($submittedData);
          //dd($submittedData,$uploadedPaper);
@@ -105,6 +129,7 @@ class UploadedPaperController extends Controller
     public function destroy($id)
     {
         $uploadedPaper = UploadedPaper::find($id);
+        Storage::disk('public')->delete('/papers/' . $uploadedPaper->file_location);
         $uploadedPaper->delete();
         //dd($uploadedPaper);
         return redirect()->action('Admin\UploadedPaperController@index')->with('success', "Paper deleted successfully");

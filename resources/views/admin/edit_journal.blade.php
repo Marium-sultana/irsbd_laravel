@@ -78,21 +78,22 @@
                     
                     
                     <div class="control-group">
-                        <label class="control-label" for="typeahead">Main Manuscript file </label>
+                        <label class="control-label" for="typeahead">Main Manuscript file  </label>
                         <div class="controls">
                             <input type="file" class="span6"   name="selected_file">
-                            
+                           <span>{{substr($uploadedPaper->file_location, 11)}}</span> 
                         </div>
                     </div>
-                   
+                    
                    
               
                    
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save </button>
+                        <button type="submit" class="btn btn-primary">Update </button>
                         <button type="reset" class="btn">Cancel</button>
                     </div>
                 </fieldset>
+
             </form>   
 
         </div>
