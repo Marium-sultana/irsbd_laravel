@@ -43,6 +43,11 @@
             ?>
         </h3>
         <div class="box-content">
+        @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
         <!--{!! Form::model($uploadedPaper,['route'=>['journalPaper-update',$uploadedPaper->id],
                         'class'=>'form-horizontal','enctype'=>'multipart/form-data','name'=>'edit_journal','method'=>'put']) !!}-->
           <form name="edit_journal" class="form-horizontal" enctype="multipart/form-data" action="{{route('journalPaper-update',$uploadedPaper->id)}}" method="post">
@@ -81,8 +86,12 @@
                         <label class="control-label" for="typeahead">Main Manuscript file  </label>
                         <div class="controls">
                             <input type="file" class="span6"   name="selected_file">
-                           <span>{{substr($uploadedPaper->file_location, 11)}}</span> 
+                            <span>
+                                <a href="{{url('/')}}/public/storage/papers/{{$uploadedPaper->file_location}}" >
+                                       <i class="icon-download"></i> {{substr($uploadedPaper->file_location, 11)}}</a>
+                            </span>
                         </div>
+                       
                     </div>
                     
                    

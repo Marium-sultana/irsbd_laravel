@@ -40,6 +40,8 @@ Route::group(['prefix' => 'admin'],function(){
   //Route::get('/edit_journal/delete/{id}', 'Admin\UploadedPaperController@delete_file');
   Route::post('/edit_journals/edit/{uploadedPaper}',['uses'=>'Admin\UploadedPaperController@update','as'=>'journalPaper-update']);
   Route::delete('/manage_journals/delete/{id}', 'Admin\UploadedPaperController@destroy');
+ 
+
   
 
   Route::get('/add_banner', 'Admin\BannerImageController@index');
@@ -55,8 +57,11 @@ Route::group(['prefix' => 'admin'],function(){
 
   Route::get('/add_issue', 'Admin\IssueController@create');
   Route::post('/add_issue', 'Admin\IssueController@store');
+  
+  Route::get('/manage_issue', 'Admin\IssueController@index');
+  Route::delete('/manage_issue/delete/{id}', 'Admin\IssueController@destroy');
+  Route::put('/manage_issue/status/{id}', 'Admin\IssueController@status');
 
-  Route::get('/manage_issue', 'Admin\IssueController@show'); 
   Route::get('/call_paper', 'Admin\CallPaperController@index');
 
   Route::get('/wise_word', 'Admin\WiseWordController@index');

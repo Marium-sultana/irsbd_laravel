@@ -17,6 +17,7 @@ class CreateIssuesTable extends Migration
             $table->increments('id');
             $table->string('issue_name');
             $table->integer('year');
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
     }

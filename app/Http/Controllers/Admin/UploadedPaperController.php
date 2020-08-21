@@ -27,7 +27,8 @@ class UploadedPaperController extends Controller
 
     public function create()
     {
-        $issue = Issue::pluck('issue_name','id');
+        $issue = Issue::where('status', 1)->pluck('issue_name','id');
+        //dd($issue);
         return view('admin.add_journal',compact('issue'));
     }
 
@@ -42,9 +43,9 @@ class UploadedPaperController extends Controller
            'selected_file.required'=>'File must be selected and file format must be in pdf or doc'
         ]);
         $uploadedPaper = new UploadedPaper();
-        $uploadedPaper->paper_title = $request->paper_title;
-        $uploadedPaper->author_name = $request->author_name;
-        $uploadedPaper->abstract = $request->abstract;
+        $uploadedPaper->paper_title = trim($request->paper_title);
+        $uploadedPaper->author_name = trim($request->author_name);
+        $uploadedPaper->abstract= $request->abstract;
         $uploadedPaper->issue_id = $request->issue_id;
         $uploadedPaper->status = 1;
 
@@ -79,10 +80,8 @@ class UploadedPaperController extends Controller
        // dd($uploadedPaper);
        // $uploadedPaper->update(['file_location' => '']);
        $this->validate($request,[
-        'paper_title'=>'required',
         'selected_file'=>'required'
     ],[
-       'paper_title.required'=>'Title Field is required',
        'selected_file.required'=>'File must be selected and file format must be in pdf or doc'
     ]);
     Validator::make($request->all(),['selected_file'=>"required|mimes:pdf,zip,docx|max:2048"])->validate();
@@ -135,4 +134,6 @@ class UploadedPaperController extends Controller
         return redirect()->action('Admin\UploadedPaperController@index')->with('success', "Paper deleted successfully");
 
     }
+
+
     }

@@ -10,7 +10,8 @@ class IssueController extends Controller
 {
     public function index()
     {
-      
+        $data = Issue::all('id','issue_name','year','status');
+          return view('admin.manage_issue',compact('data'));
     }
     public function create()
     {
@@ -37,4 +38,30 @@ class IssueController extends Controller
         $data = ['all_issue'=>$all_issue];
         return view('admin.manage_issue', $data);
     }
+
+    public function destroy($id)
+    {
+        $issue = Issue::find($id);
+        $issue->delete();
+       // dd($issue);
+        return redirect()->action('Admin\IssueController@index')->with('success', "Issue deleted successfully");
+
+    }
+
+    public function status($id)
+    {
+        $issue = Issue::find($id);
+        if($issue->status === 1){
+            $issue->status = 0;
+            $msg = 'Your issue is deactivated';
+        }else{
+            $issue->status = 1;
+            $msg = 'Your issue is activated';
+        }
+        $issue->save();
+       // dd($uploadedPaper);
+        return redirect()->action('Admin\IssueController@index')->with('success', $msg);
+
+    }
+    
 }

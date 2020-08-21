@@ -19,14 +19,14 @@
       <table class="table table-striped table-bordered bootstrap-datatable datatable">
         <thead>
             <tr>
-                <th>Paper Id</th>
+                <th>Serial No</th>
                 <th>Paper Title</th>
                 <th>Manuscript File</th>
                 <th>Author Name</th>
                 <th>Abstract</th>
               
                  <th>Issue</th>
-             
+                
                 <th>Actions</th>
             </tr>
         </thead>   
@@ -36,12 +36,13 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $paper->paper_title}}</td>
                
-                <td class="center"><a href="{{$paper->file_location}}" class="rm">Download</a></td>
+                <td class="center"
+                        ><a href=" {{url('/')}}/public/storage/papers/{{$paper->file_location}}" class="rm">
+                             <i class="icon-download"></i> {{substr($paper->file_location, 11)}}</a>
+                </td>
                  <td class="center">{{ $paper->author_name}}</td>
                   <td>{{$paper->abstract}}</td>
                   <td>{{$issue[$paper->issue_id]}}</td>
-       
-        
                
                 <td class="center">
                    {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_journals/delete/'.$paper->id],'style'=>'display:inline'])!!}

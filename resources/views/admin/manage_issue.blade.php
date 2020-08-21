@@ -11,39 +11,54 @@
                     <!-- content starts -->
 
                     <div class="box-content">
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
     <table class="table table-striped table-bordered bootstrap-datatable datatable">
         <thead>
             <tr>
                
                 <th>Issue Name</th>
                 <th>Year</th>
-               
-                <th>Actions</th>
+                <th>Status</th>
+               <!--<th>Actions</th>-->
             </tr>
         </thead>   
         <tbody>
-            <?php
-                foreach($all_issue as $v_paper)
-                {
-            ?>
+        @foreach($data as $i=>$m_issue)            
             <tr>
-               
-                <td><?php echo $v_paper->issue_name?></td>
-               <td><?php echo $v_paper->year?></td>
-                <td class="center">
+           
+            <td>{{ $m_issue->issue_name}}</td>
+            <td>{{ $m_issue->year}}</td>
+            <td class="center">
+                   {!! Form::open(['method'=>'PUT','url'=>['admin/manage_issue/status/'.$m_issue->id],
+                                 'style'=>'display:inline'])!!}
+                  @if($m_issue->status === 1)
+                               {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm'] ) !!}
+                  @else
+                              {!! Form::submit('Inactive', [ 'class' => 'btn btn-danger btn-sm'] ) !!}
+                  @endif
+                           {!! Form::close()!!}
+            </td>
+                <!---<td class="center">
+                {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_issue/delete/'.$m_issue->id],'style'=>'display:inline'])!!}
+                {!! Form::button('<i class="icon-trash icon-white"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] ) !!}
+                {!! Form::close()!!}
                  
-                    <a class="btn btn-danger" href="<?php echo base_url();?>super_admin/delete_issue/<?php echo $v_paper->issue_id?>" title="Delete" onclick="return check_delete();">
-                        <i class="icon-trash icon-white"></i> 
+                   <!--- <a class="btn btn-danger" href="super_admin/delete_issue/" title="Delete" onclick="return check_delete();">
+                        <i class="icon-trash icon-white"></i> -->
                      
-                    </a>
+                   
                 		
                     
-                    <?php } ?>
                     
                     
-                </td>
+                    
+               
             </tr>
-              
+            @endforeach  
         </tbody>
     </table>            
 </div>
