@@ -57,7 +57,7 @@
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
-                                            <h3 style="color: red"> 
+                                            <h3 id="msg" style="color: red"> 
                                                 <?php
                                                    // $msg=$this->session->userdata('message');
                                                    $msg = '';
@@ -73,12 +73,14 @@
                                     <form class="form-horizontal" action="super_user/check_password" method="post">
 						<fieldset>
 							<div class="input-prepend" title="Enter Old Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input autofocus class="input-large span10" name="user_old_password" id="username" type="password"  />
+								<span class="add-on"><i class="icon-lock"></i></span>
+								<input autofocus class="input-large span10" name="old_pass" id="old_pass" type="text"  />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Enter New Password" data-rel="tooltip">
-                                                            <span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="user_new_password" id="password" type="password"  />
+                                <span class="add-on"><i class="icon-lock"></i></span>
+								<input class="input-large span10" name="new_pass" id="new_pass" type="text"  />
 							</div>
 							<div class="clearfix"></div>
 
@@ -86,7 +88,7 @@
 							
 
 							<p class="center span5">
-							<button type="submit" class="btn btn-primary">Update Password</button>
+							<button id="btn_update" type="submit" class="btn btn-primary">Update Password</button>
 							</p>
 						</fieldset>
 					</form>
@@ -169,7 +171,24 @@
 	<script src="{{asset('public/asset/js/jquery.history.js')}}"></script>
 	<!-- application script for Charisma demo -->
 	<script src="{{asset('public/asset/js/charisma.js')}}"></script>
-	
+
+
+	<script>
+	      $("#btn_update").click(function(){
+			  var old_pass = $("#old_pass").val();
+                    //alert(old_pass.length +" "+ old_pass);
+					var new_pass = $("#new_pass").val();
+					if(new_pass.length<8){ 
+						$("#msg").html("New Password must be greater than 8");
+						//alert("New Password must be greater than 8");
+					return false;
+					}else{
+						$("#old_pass").val(new_pass);
+						$("#msg").html(" ");
+						return false;
+					}
+            }); 
+   </script>
 		
 </body>
 </html>

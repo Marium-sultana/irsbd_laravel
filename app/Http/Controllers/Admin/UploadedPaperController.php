@@ -27,6 +27,7 @@ class UploadedPaperController extends Controller
 
     public function create()
     {
+        
         $issue = Issue::where('status', 1)->pluck('issue_name','id');
         //dd($issue);
         return view('admin.add_journal',compact('issue'));
