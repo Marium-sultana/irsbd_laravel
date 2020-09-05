@@ -36,7 +36,18 @@
                 ?>
             </h3>
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="super_user/save_submitted_paper" method="post">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+                 <ul>
+                    @foreach($errors->all() as $error)
+                       <li style="padding:10px">{{$error}}</li>
+                    @endforeach
+                 </ul>
+            </div>
+            @endif
+            <form class="form-horizontal" enctype="multipart/form-data" action="{{url('user/submit_paper')}}" method="post">
+            @csrf
+
                 <fieldset>
                     <legend></legend>
                       <div class="control-group">

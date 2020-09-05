@@ -42,8 +42,6 @@ Route::group(['prefix' => 'admin'],function(){
   Route::delete('/manage_journals/delete/{id}', 'Admin\UploadedPaperController@destroy');
  
 
-  
-
   Route::get('/add_banner', 'Admin\BannerImageController@index');
   Route::post('/add_banner', 'Admin\BannerImageController@store');
 
@@ -78,7 +76,11 @@ Route::group(['prefix' => 'admin'],function(){
 
 Route::group(['prefix' => 'user'],function(){
   Route::get('/', 'User\DashboardController@index');
+
   Route::get('/submit_paper', 'Admin\UserPaperController@create');
+  Route::post('/submit_paper', 'Admin\UserPaperController@store');
+
+
   Route::get('/view_submitted_paper/{id}', 'Admin\UserPaperController@show');
   Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
   Route::get('/change_pass', 'User\UserController@index');

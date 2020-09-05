@@ -25,8 +25,8 @@ class CreateUserPapersTable extends Migration
             $table->string('file_location');
             $table->text('abstract');
             $table->tinyInteger('status');
-            $table->string('review');
-            $table->text('text');
+            $table->string('review')->nullable();
+            $table->text('text')->nullable();
             $table->string('manuscript_type');
             $table->string('subject_area');
             $table->string('suggested_reviewer');
