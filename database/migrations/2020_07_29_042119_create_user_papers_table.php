@@ -15,8 +15,6 @@ class CreateUserPapersTable extends Migration
     {
         Schema::create('user_papers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('paper_id')->unsigned(); 
-            $table->foreign('paper_id')->references('id')->on('uploaded_papers');
             $table->string('paper_title');
             $table->string('author_name');
             $table->string('uploaded_by');

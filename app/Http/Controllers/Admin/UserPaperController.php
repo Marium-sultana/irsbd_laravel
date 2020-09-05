@@ -55,7 +55,7 @@ class UserPaperController extends Controller
        // $userPaper->agreement_letter= '';
        // $userPaper->other_files= '';
         $userPaper->status = 1;
-        $userPaper->paper_id = 1;
+       // $userPaper->paper_id = 1;
         $userPaper->user_id = 1;
         $userPaper->uploaded_by = "xyz";
         //$userPaper->text = "abcd";
