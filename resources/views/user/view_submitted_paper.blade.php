@@ -4,6 +4,11 @@
 
 <!----content start---->
 <div class="box-content">
+                   @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
     <table class="table table-striped table-bordered bootstrap-datatable datatable">
         <thead>
             <tr>
@@ -21,21 +26,30 @@
             </tr>
         </thead>   
         <tbody>
-            <?php
-                foreach($all_user as $v_paper)
-                {
-            ?>
             <tr>
+            @foreach($data as $i=>$u_paper)
                
-                <td><?php echo $v_paper->paper_title?></td>
+                <td>{{ $u_paper->paper_title}}</td>
                
-                <td class="center"><a href="<?php echo base_url().$v_paper->file_location?>" class="rm">Download</a></td>
-                  <td class="center"><a href="<?php echo base_url().$v_paper->cover_letter?>" class="rm">Download</a></td>
-                  <td class="center"><a href="<?php echo base_url().$v_paper->agreement_letter?>" class="rm">Download</a></td>
-                   <td class="center"><a href="<?php echo base_url().$v_paper->other_file?>" class="rm">Download</a></td>
-                 <td class="center"><?php echo $v_paper->author_name?></td>
+                <td class="center">
+                    <a href="{{url('/')}}/public/storage/user_papers/{{$u_paper->file_location}}" class="rm">
+                               <i class="icon-download"></i> {{substr($u_paper->file_location, 11)}}</a></td>
+
+                <td class="center">          
+                               <a href="{{url('/')}}/public/storage/cover_letters/{{$u_paper->cover_letter}}" class="rm">
+                               <i class="icon-download"></i> {{substr($u_paper->cover_letter, 11)}}</a></td>
+                
+                <td class="center">          
+                               <a href="{{url('/')}}/public/storage/agreement_letter/{{$u_paper->agreement_letter}}" class="rm">
+                               <i class="icon-download"></i> {{substr($u_paper->agreement_letter, 11)}}</a></td>
+
+                <td class="center">          
+                               <a href="{{url('/')}}/public/storage/other_file/{{$u_paper->other_files}}" class="rm">
+                               <i class="icon-download"></i> {{substr($u_paper->other_files, 11)}}</a></td>
+
+                 <td class="center">{{ $u_paper->author_name}}</td>
                 <td class="center"><?php  
-                    if($v_paper->status==1)
+                    if($u_paper->status==1)
                     {
                         echo 'Published';
                     }
@@ -43,10 +57,10 @@
                         echo 'Unpublished';
                     }
                 ?></td>
-                 <td class="center"><?php echo $v_paper->review?></td>
-                  <td class="center"><?php echo $v_paper->text?></td>
+                 <td class="center"></td>
+                  <td class="center"></td>
             </tr>
-                <?php } ?>
+            @endforeach
         </tbody>
     </table>            
 </div>

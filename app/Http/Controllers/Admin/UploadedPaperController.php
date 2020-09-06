@@ -16,14 +16,14 @@ class UploadedPaperController extends Controller
 {
     public function index()
     {
-        $title = 'Title: ';
+    
       $data = UploadedPaper::all('id','paper_title','author_name','abstract','issue_id','file_location');
       $issue_data = Issue::all();
       $issue = [];
       foreach($issue_data as $value){
           $issue[$value->id] = $value->issue_name;
       }
-        return view('admin.manage_journals',compact('data','issue','title'));
+        return view('admin.manage_journals',compact('data','issue'));
     }
 
     public function create()

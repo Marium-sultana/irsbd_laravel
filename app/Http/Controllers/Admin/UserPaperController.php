@@ -98,15 +98,19 @@ class UserPaperController extends Controller
          }
       //  dd($userPaper);
         $userPaper->save();
-        return redirect()->action('Admin\UserPaperController@create')->with('success', "Paper submitted successfully");
+        return redirect()->action('Admin\UserPaperController@viewSubmittedPaper')->with('success', "Paper submitted successfully");
          
     }
 
     public function show($id)
     {
-        $all_user = [];
-        $data = ['all_user' => $all_user];
-        return view('user.view_submitted_paper', $data);
+
+    }
+
+    public function viewSubmittedPaper()
+    {
+        $data = UserPaper::all('paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status');
+        return view('user.view_submitted_paper',compact('data'));
     }
 
     public function inbox($id)

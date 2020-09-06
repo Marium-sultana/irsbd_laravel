@@ -3,7 +3,7 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Main</li>
 						<li><a class="ajax-link" href="{{url('user/submit_paper')}}"><i class="icon-home"></i><span class="hidden-tablet"> Manuscript Submission </span></a></li>
-                    	<li><a class="ajax-link" href="{{url('user/view_submitted_paper/{id}')}}"><i class="icon-picture"></i><span class="hidden-tablet"> Check Submitted Manuscripts</span></a></li> 
+                    	<li><a class="ajax-link" href="{{url('user/view_submitted_paper')}}"><i class="icon-picture"></i><span class="hidden-tablet"> Check Submitted Manuscripts</span></a></li> 
                     	<li><a class="ajax-link" href="{{url('user/inbox/{id}')}}"><i class="icon-picture"></i><span class="hidden-tablet"> Inbox</span></a></li> 
                     	<li><a class="ajax-link" href="{{url('user/change_pass')}}"><i class="icon-home"></i><span class="hidden-tablet"> Change Password </span></a></li>
 					</ul>

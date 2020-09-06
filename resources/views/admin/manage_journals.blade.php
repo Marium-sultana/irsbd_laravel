@@ -34,7 +34,7 @@
                 @foreach($data as $i=>$paper)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{$title}} {{ $paper->paper_title}}</td>
+                <td>{{ $paper->paper_title}}</td>
                
                 <td class="center"
                         ><a href=" {{url('/')}}/public/storage/papers/{{$paper->file_location}}" class="rm">

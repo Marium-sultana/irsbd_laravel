@@ -81,7 +81,8 @@ Route::group(['prefix' => 'user'],function(){
   Route::post('/submit_paper', 'Admin\UserPaperController@store');
 
 
-  Route::get('/view_submitted_paper/{id}', 'Admin\UserPaperController@show');
+  Route::get('/view_submitted_paper', 'Admin\UserPaperController@viewSubmittedPaper');
+
   Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
   Route::get('/change_pass', 'User\UserController@index');
   Route::get('/login', 'User\UserController@login');
