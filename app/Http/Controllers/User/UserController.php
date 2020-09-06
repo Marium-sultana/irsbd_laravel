@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+
 
 class UserController extends Controller
 {
@@ -41,7 +44,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::where([
+            ['email', '=', $request->email],
+            ['password', '=', md5($request->password)]
+        ])->get();
+
+        //$user = User::all('email','password');
+        //dd($user);
+        if(count($user) > 0){
+           return view('user.submit_paper');
+          // return redirect()->route('user');
+        }
+        else{
+           //return redirect()->route('user');
+           return view('user.user_login');
+
+        }
     }
 
     /**
@@ -52,7 +70,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+     
     }
 
     /**

@@ -70,15 +70,18 @@
                                                 ?>
                                             </h3>
 					</div>
-                                    <form class="form-horizontal" action="user/check_user_login" method="post">
+                     <form class="form-horizontal" action="{{url('user/login')}}" method="post">
+					 @csrf
 						<fieldset>
 							<div class="input-prepend" title="Email Address" data-rel="tooltip">
-								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="email" id="username" type="text"  />
+								<span class="add-on"><i class="icon-user"></i></span>
+								    <input autofocus class="input-large span10" name="email" id="username" type="text"  />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" />
+								<span class="add-on"><i class="icon-lock"></i></span>
+								    <input class="input-large span10" name="password" id="password" type="password" />
 							</div>
 							<div class="clearfix"></div>
 

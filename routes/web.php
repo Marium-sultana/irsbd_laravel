@@ -85,5 +85,8 @@ Route::group(['prefix' => 'user'],function(){
 
   Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
   Route::get('/change_pass', 'User\UserController@index');
+
   Route::get('/login', 'User\UserController@login');
+  Route::post('/login', 'User\UserController@store');
+
 });
