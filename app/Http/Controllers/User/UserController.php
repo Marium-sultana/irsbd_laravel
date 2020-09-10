@@ -28,7 +28,10 @@ class UserController extends Controller
 
     public function login()
     {
-        return view('user.user_login');
+        if(!session()->has('user_id'))
+            return view('user.user_login');
+        else
+            return redirect('/');
     }
 
     public function create()
@@ -42,7 +45,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function checkLogin(Request $request)
     {
         $user = User::where([
             ['email', '=', $request->email],
@@ -52,28 +55,32 @@ class UserController extends Controller
         //$user = User::all('email','password');
 
         if(!empty($user)){
-        //dd($user[0]);
-       // dd($user->id);
-       // Session::put('user_id',$user->id);
-        //Session::put('username',$user->username);
-        //Session::put('name',$user->id);
-        session([
-            'user_id' => $user->id,
-            'name' => $user->name,
-            'user_email' => $user->email,
-            'username' => $user->username
+            //dd($user[0]);
+            // dd($user->id);
+            // Session::put('user_id',$user->id);
+            //Session::put('username',$user->username);
+            //Session::put('name',$user->id);
+            session([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'user_email' => $user->email,
+                'username' => $user->username
 
-        ]);
-
-
-           return view('user.submit_paper');
-          // return redirect()->route('user');
+            ]);
+            return redirect('user/submit_paper');
         }
+
         else{
-           //return redirect()->route('user');
-           return view('user.user_login');
+            return redirect('user/checkLogin');
 
         }
+    }
+
+    public function userLogout()
+    {
+        session()->flush();
+        return redirect('/');
+
     }
 
     /**

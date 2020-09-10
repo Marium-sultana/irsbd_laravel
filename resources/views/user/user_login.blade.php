@@ -70,7 +70,7 @@
                                                 ?>
                                             </h3>
 					</div>
-                     <form class="form-horizontal" action="{{url('user/login')}}" method="post">
+                     <form class="form-horizontal" action="{{url('user/checkLogin')}}" method="post">
 					 @csrf
 						<fieldset>
 							<div class="input-prepend" title="Email Address" data-rel="tooltip">

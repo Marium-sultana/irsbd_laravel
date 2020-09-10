@@ -20,14 +20,14 @@
 					</a>
 					<ul class="dropdown-menu">
 						
-                                                <li><a href="http://localhost/irsbd/super_user/logout">Logout</a></li>
+                        <li><a href="{{url('user/logout')}}">Logout</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
 				
 				<div class="top-nav nav-collapse">
 					<ul class="nav">
-						<li><a href="http://localhost/irsbd/">Visit Site</a></li>
+						<li><a href="{{url('/')}}">Visit Site</a></li>
 						
 					</ul>
 				</div><!--/.nav-collapse -->

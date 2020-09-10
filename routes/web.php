@@ -86,19 +86,26 @@ Route::group(['prefix' => 'admin'],function(){
 
 
 
-Route::group(['prefix' => 'user'],function(){
-  Route::get('/', 'User\DashboardController@index');
+Route::get('user/login', 'User\UserController@login');
+Route::post('user/checkLogin', 'User\UserController@checkLogin');
 
-  Route::get('/submit_paper', 'Admin\UserPaperController@create');
-  Route::post('/submit_paper', 'Admin\UserPaperController@store');
+  Route::group(['middleware' => ['checksession']], function () {
+    Route::group(['prefix' => 'user'],function(){
+      Route::get('/', 'User\DashboardController@index');
+    
+      Route::get('/submit_paper', 'Admin\UserPaperController@create');
+      Route::post('/submit_paper', 'Admin\UserPaperController@store');
+    
+    
+      Route::get('/view_submitted_paper', 'Admin\UserPaperController@viewSubmittedPaper');
+    
+      Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
+      Route::get('/change_pass', 'User\UserController@index');       
+      Route::get('/logout', 'User\UserController@userLogout');
+  
+});
 
 
-  Route::get('/view_submitted_paper', 'Admin\UserPaperController@viewSubmittedPaper');
 
-  Route::get('/inbox/{id}', 'Admin\UserPaperController@inbox');
-  Route::get('/change_pass', 'User\UserController@index');
-
-  Route::get('/login', 'User\UserController@login');
-  Route::post('/login', 'User\UserController@store');
 
 });
