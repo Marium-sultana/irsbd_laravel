@@ -47,11 +47,25 @@ class UserController extends Controller
         $user = User::where([
             ['email', '=', $request->email],
             ['password', '=', md5($request->password)]
-        ])->get();
+        ])->first();
 
         //$user = User::all('email','password');
-        //dd($user);
-        if(count($user) > 0){
+
+        if(!empty($user)){
+        //dd($user[0]);
+       // dd($user->id);
+       // Session::put('user_id',$user->id);
+        //Session::put('username',$user->username);
+        //Session::put('name',$user->id);
+        session([
+            'user_id' => $user->id,
+            'name' => $user->name,
+            'user_email' => $user->email,
+            'username' => $user->username
+
+        ]);
+
+
            return view('user.submit_paper');
           // return redirect()->route('user');
         }

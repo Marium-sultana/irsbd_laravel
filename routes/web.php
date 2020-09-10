@@ -20,6 +20,18 @@ use Illuminate\Http\Request;
 
 Auth::routes();
 
+Route::get('/session',function (){
+  echo '<pre>';
+  print_r(Session::all());
+  print_r(Session::get('name'));
+
+  // print_r(session()->all());
+  // print_r(Session::token());
+});
+Route::get('/logout',function (){
+  session()->flush();
+});
+
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomePageController@index');
 Route::get('/irs_member', 'HomePageController@member');
