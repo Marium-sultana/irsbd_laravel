@@ -37,10 +37,7 @@ class HomePageController extends Controller
         return view('front.archive');
     }
 
-    public function user_registration()
-    {
-        return view('front.user_registration');
-    }
+   
 
     public function contact()
     {

@@ -39,12 +39,36 @@ class UserController extends Controller
         //
     }
 
-    /**
+     public function user_registration()
+     {
+        return view('front.user_registration');
+         
+     }
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     public function store(Request $request)
+     {
+         $user = new User();
+         $user->username = $request->username;
+         $user->password = md5($request->password);
+         $user->name = $request->name;
+         $user->gender = $request->gender;
+         $user->email = $request->email;
+         $user->additional_email = $request->additional_email;
+         $user->phone = $request->phone;
+         $user->country = $request->country;
+        // $user->forget_password = 0;
+         $user->save();
+         return redirect()->action('User\UserController@user_registration')->with('success', "User Created Successfully");
+        
+
+     }
+
     public function checkLogin(Request $request)
     {
         $user = User::where([

@@ -12,22 +12,28 @@
 
 
 <div id="content">
+@if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
 
+<form id="registerForm" method="post" action="{{url('/user_registration')}}">
+    @csrf
+    <p>Fill in this form to register with this site.</p>
 
-    <form id="registerForm" method="post" action="welcome/save_user">
+     <h3>Profile</h3>
 
-        <p>Fill in this form to register with this site.</p>
-
- <h3>Profile</h3>
-
- <table  width="100%">
+         <table  width="100%">
 
             <tr valign="top">
                 <td width="20%">
                    
                         Username *
                 </td>
-                <td width="80%" class="value"><input type="text" name="username" value="" id="username" size="20" maxlength="32" class="textField" /></td>
+                <td width="80%" class="value">
+                    <input type="text" name="username" value="" id="username" size="20" maxlength="32" class="textField" />
+                </td>
             </tr>
             <tr valign="top">
                 <td></td>
@@ -52,13 +58,10 @@
                     
                         Full Name *
                 </td>
-                <td class="value"><input type="text" id="firstName" name="name" value="" size="20" maxlength="40" class="textField" /></td>
+                <td class="value">
+                    <input type="text" id="firstName" name="name" value="" size="20" maxlength="40" class="textField" />
+                </td>
             </tr>
-
-
-
-
-
             <tr valign="top">
                 <td>
                         Gender 
@@ -73,55 +76,48 @@
                     </select>
                 </td>
             </tr>
-
-
-
             <tr valign="top">
                 <td >
                    
                         Email *
                 </td>
-                <td class="value"><input type="text" id="email" name="email" value="" size="30" maxlength="90" class="textField" /> </td>
+                <td class="value">
+                    <input type="text" id="email" name="email" value="" size="30" maxlength="90" class="textField" /> 
+                </td>
             </tr>
             <tr valign="top">
                 <td >
                    
                        Additional Email *
                 </td>
-                <td class="value"><input type="text" id="email" name="additional_email" value="" size="30" maxlength="90" class="textField" /> </td>
+                <td class="value">
+                    <input type="text" id="email" name="additional_email" value="" size="30" maxlength="90" class="textField" /> 
+                </td>
             </tr>
-
-
-
-
-
             <tr valign="top">
-                <td >
-                    
+                <td >  
                         Phone 
                 </td>
-                <td class="value"><input type="text" name="phone" id="phone" value="" size="15" maxlength="24" class="textField" /></td>
+                <td class="value">
+                    <input type="text" name="phone" id="phone" value="" size="15" maxlength="24" class="textField" />
+                </td>
             </tr>
-
-
             <tr valign="top">
                 <td >
                    
                         Country
                 </td>
-                <td class="value"><input type="text" name="country" id="country" value="" size="15" maxlength="24" class="textField" />
-                    
-
-           
+                <td class="value">
+                    <input type="text" name="country" id="country" value="" size="15" maxlength="24" class="textField" />
                 </td>
             </tr>
-
-
-
         </table>
 
         <br />
-        <p><input type="submit" value="Register" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="document.location.href = 'http://www.irsbd.org'" /></p>
+        <p>
+            <input type="submit" value="Register" class="button defaultButton" />
+            <input type="button" value="Cancel" class="button" onclick="document.location.href = 'http://www.irsbd.org'" />
+        </p>
 
         <p><span class="formRequired">* Denotes required field</span></p>
 
