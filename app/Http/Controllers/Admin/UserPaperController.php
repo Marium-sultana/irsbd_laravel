@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Session;
 use App\UserPaper;
 use App\File;
-
+use App\User;
 
 class UserPaperController extends Controller
 {
@@ -55,13 +56,9 @@ class UserPaperController extends Controller
        // $userPaper->agreement_letter= '';
        // $userPaper->other_files= '';
         $userPaper->status = 1;
-       // $userPaper->paper_id = 1;
-        $userPaper->user_id = 1;
-        $userPaper->uploaded_by = "xyz";
-        //$userPaper->text = "abcd";
-       // $userPaper->review = "sdfg";
+        $userPaper->user_id = Session::get('user_id');
 
-       // dd($userPaper);
+      // dd($userPaper);
         	        
        Validator::make($request->all(),
        [
@@ -110,6 +107,7 @@ class UserPaperController extends Controller
     public function viewSubmittedPaper()
     {
         $data = UserPaper::all('paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status');
+
         return view('user.view_submitted_paper',compact('data'));
     }
 

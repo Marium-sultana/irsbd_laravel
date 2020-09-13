@@ -15,7 +15,8 @@
 				<!-- user dropdown starts -->
 				<div class="btn-group pull-right" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> Marium Sultana</span>
+						<i class="icon-user"></i>
+							<span class="hidden-phone"> {{Session::get('name')}}</span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">

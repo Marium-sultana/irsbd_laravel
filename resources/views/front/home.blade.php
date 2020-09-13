@@ -11,7 +11,7 @@
 
 
 <div id=""> <a name="IJIR (ISSN: ) "></a>
-    <h1><p align="center"  font-size:20px; >International Journal of Innovative Research (IJIR) <span class="green"></span></p></h1>
+    <h1><p  style="font-size:20px;align:center" >International Journal of Innovative Research (IJIR) <span class="green"></span></p></h1>
     			<br>  
                         
       		
@@ -43,7 +43,6 @@
 	
                 
        <b> Volume 4 Issue 2 </b>
-        <!--$var=$v_issue->issue_name;-->
         	
 	</td>
 </tr>
