@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,8 +15,8 @@ class UserPaperController extends Controller
 {
     public function index()
     {
-        $all_paper = [];
-        return view('admin.manage_papers', ['all_paper'=>$all_paper]);
+        $a_data = UserPaper::all('id','paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status');
+        return view('admin.manage_papers', compact('a_data'));
     }
 
     public function create()
@@ -116,6 +117,22 @@ class UserPaperController extends Controller
         $all_paper = [];
         $data = ['all_paper' => $all_paper];
         return view('user.inbox', $data);
+    }
+
+    public function destroy($id)
+    {
+        $userPaper = UserPaper::find($id);
+
+        Storage::disk('public')->delete('/user_papers/' .$userPaper->file_location);
+        Storage::disk('public')->delete('/cover_letters/' .$userPaper->cover_letter);
+        Storage::disk('public')->delete('/agreement_letter/' .$userPaper->agreement_letter);
+        Storage::disk('public')->delete('/other_file/' .$userPaper->other_file);
+        //dd($userPaper);
+
+       $userPaper->delete();
+
+        return redirect()->action('Admin\UserPaperController@index')->with('success', "User Paper deleted successfully");
+
     }
 
 }

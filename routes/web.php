@@ -49,6 +49,8 @@ Route::get('/contact', 'HomePageController@contact');
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
   Route::get('/manage_papers', 'Admin\UserPaperController@index');
+  Route::delete('/manage_papers/delete/{id}', 'Admin\UserPaperController@destroy');
+
 
   Route::get('/manage_journals', 'Admin\UploadedPaperController@index');
   Route::get('/edit_journal/{id}', 'Admin\UploadedPaperController@edit');
