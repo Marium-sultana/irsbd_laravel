@@ -104,12 +104,34 @@ class UserPaperController extends Controller
     {
 
     }
-
+    
     public function viewSubmittedPaper()
     {
         $data = UserPaper::all('paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status');
 
         return view('user.view_submitted_paper',compact('data'));
+    }
+
+    public function edit($id)
+    {
+        $userPaper = UserPaper::find($id);
+       //dd($uploadedPaper);
+      // $paper_info = [];
+      // $data=['paper_info' => $paper_info];
+        return view('admin.review_paper',compact('userPaper'));
+
+    }
+
+    public function update(Request $request, UserPaper $userPaper){
+        $submittedData = [
+             
+            'review' => $request->review,
+             'text' => $request->text 
+      ];
+      $userPaper->update([$submittedData]);
+      $userPaper = UserPaper::find($userPaper->id)->update($submittedData);
+      return redirect()->action('Admin\UserPaperController@index')->with('success', "Paper updated successfully");
+
     }
 
     public function inbox($id)

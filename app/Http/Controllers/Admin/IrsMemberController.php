@@ -16,7 +16,8 @@ class IrsMemberController extends Controller
      */
     public function index()
     {
-        
+        $data = IrsMember::all('id','member_name','member_designation','member_contact_no','member_email');
+        return view('admin.manage_member', compact('data'));   
     }
 
     /**
@@ -64,14 +65,12 @@ class IrsMemberController extends Controller
         if($request->hasFile('member_image')){
             $fileName = $request->member_image->getClientOriginalName();
             $filePath = $request->member_image->storeAs('member_images',$fileName,'public');
-            $irsMember->member_image = '/storage/member_images/' .$fileName;
-            $irsMember->save();
-            return back()->with('success', 'Image has been uploaded.')
-                         ->with('file', $fileName);  
+            $irsMember->member_image = $fileName; 
+           
         }
         
         $irsMember->save();
-        return redirect()->action('Admin\IrsMemberController@create');
+        return redirect()->action('Admin\IrsMemberController@index')->with('success', "Paper submitted successfully");
     }
 
     /**
@@ -82,9 +81,7 @@ class IrsMemberController extends Controller
      */
     public function show()
     {
-        $all_member = [];
-        $data = ['all_member' => $all_member];
-        return view('admin.manage_member', $data);
+        
     }
 
     /**
@@ -95,7 +92,11 @@ class IrsMemberController extends Controller
      */
     public function edit($id)
     {
-       
+        $irsMember = IrsMember::find($id);
+        //dd($uploadedPaper);
+       // $paper_info = [];
+       // $data=['paper_info' => $paper_info];
+         return view('admin.edit_member',compact('irsMember'));
     }
 
     /**
@@ -105,7 +106,7 @@ class IrsMemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, IrsMember $irsMember)
     {
         //
     }
@@ -118,6 +119,9 @@ class IrsMemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $irsMember = IrsMember::find($id);
+        $irsMember->delete();
+        return redirect()->action('Admin\IrsMemberController@index')->with('success', "Member deleted successfully");
+        
     }
 }

@@ -66,3 +66,14 @@
         <script src="http://localhost/irsbd/asset/js/jquery.history.js"></script>
         <!-- application script for Charisma demo -->
         <script src="http://localhost/irsbd/asset/js/charisma.js"></script>
+
+<script>
+        $(window).load(function() { 
+            $("img").each(function(){ 
+                var image = $(this); 
+                    if(image.context.naturalWidth == 0 || image.readyState == 'uninitialized'){  
+                $(image).unbind("error").hide();
+                } 
+            }); 
+        });
+</script>

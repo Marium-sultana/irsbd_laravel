@@ -98,7 +98,13 @@
                      <div class="control-group">
                         <label class="control-label" for="typeahead">Image </label>
                         <div class="controls">
-                            <input type="file" class="span6"   name="member_image">
+                            <input type="file" class="span6"   name="member_image" onchange="previewFile(this);">
+                            
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                           <img id="previewImg" src="" alt="Preview Image"/> 
                             
                         </div>
                     </div>
@@ -117,11 +123,7 @@
                             
                         </div>
                     </div>
-               
-                    
-                     
-                    
-                    
+                
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Save </button>
                         <button type="reset" class="btn">Cancel</button>
@@ -131,10 +133,31 @@
 
         </div>
     </div><!--/span--></div><!--/row-->
+    
 
                     <!-- content ends -->
                 </div><!--/#content.span10-->
             </div><!--/fluid-row-->
 
             <hr>
+
+ <script type="text/javascript">
+
+        function previewFile(input){
+            var file = $("input[type=file]").get(0).files[0];
+
+            if(file){
+                var reader = new FileReader();
+
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+            }
+        }
+
+
+</script>
+        
 @endsection

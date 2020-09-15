@@ -87,13 +87,10 @@ elseif( $a_paper->text==3)
                     {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_papers/delete/'.$a_paper->id],'style'=>'display:inline'])!!}
                         {!! Form::button('<i class="icon-trash icon-white"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] ) !!}
                         {!! Form::close()!!}
-                     
-                 <a class="btn btn-primary" href="super_admin/review_paper/<?php echo $a_paper->paper_id?>" title="Review">
-                        <i class="icon-check icon-white"></i>  
-						
-                    </a>
-                   
                     
+                 <a class="btn btn-primary" href="{{url('admin/review_paper/'.$a_paper->id)}}" title="Review">
+                     <i class="icon-check icon-white"></i>  
+                 </a>     
                     
                 </td>
             </tr>

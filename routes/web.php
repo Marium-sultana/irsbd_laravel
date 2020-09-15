@@ -48,7 +48,10 @@ Route::get('/contact', 'HomePageController@contact');
 
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
+
   Route::get('/manage_papers', 'Admin\UserPaperController@index');
+  Route::get('/review_paper/{id}', 'Admin\UserPaperController@edit');
+  Route::post('/review_paper/edit/{userPaper}',['uses'=>'Admin\UserPaperController@update','as'=>'userPaper-review']);
   Route::delete('/manage_papers/delete/{id}', 'Admin\UserPaperController@destroy');
 
 
@@ -85,7 +88,11 @@ Route::group(['prefix' => 'admin'],function(){
   Route::get('/member', 'Admin\IrsMemberController@create');
   Route::post('/member', 'Admin\IrsMemberController@store');
 
-  Route::get('/manage_member', 'Admin\IrsMemberController@show');
+  Route::get('/manage_member', 'Admin\IrsMemberController@index');
+  Route::get('/edit_member/{id}', 'Admin\IrsMemberController@edit');
+  Route::post('/edit_member/edit/{irsMember}',['uses'=>'Admin\UploadedPaperController@update','as'=>'irsMember-update']);
+  Route::delete('/manage_member/delete/{id}', 'Admin\IrsMemberController@destroy');
+
   Route::get('/editorial_team/{id}', 'Admin\EditorialTeamController@edit');
 });
 

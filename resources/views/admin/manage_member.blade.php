@@ -36,58 +36,50 @@
 
 
 
-<div class="box-content">
+    <div class="box-content">
+    @if($message = Session::get('success'))
+                    <div class="alert alert-success">
+                            {{$message}}
+                    </div>
+                @endif
     <table class="table table-striped table-bordered bootstrap-datatable datatable">
-        <thead>
-            <tr>
+    <thead>
+        <tr>   
+            <th>Member ID</th>
+            <th>Member Name</th>
+            <th> Working Area</th>
+            <th>Contact No.</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>   
+    <tbody>
+    @foreach($data as $i=>$member)
+        
+        <tr>
+            <td>{{$member->id}}</td>
+            <td class="center">{{$member->member_name}}</td>
+            <td class="center"> {{$member->member_designation}}</td>
+            <td class="center">{{$member->member_contact_no}}</td>
+            <td class="center">{{$member->member_email}}</td>
                 
-                <th>Member ID</th>
-                <th>Member Name</th>
-                <th> Working Area</th>
-              
-                 <th>Contact No.</th>
-               
-                <th>Email</th>
-                
-                <th>Actions</th>
-            </tr>
-        </thead>   
-        <tbody>
-            <?php
-                foreach($all_member as $v_member)
-                {
-            ?>
-            <tr>
-                <td><?php echo $v_member->member_id?></td>
-                <td class="center"><?php echo $v_member->member_name?></td>
-                
-                <td class="center"><?php echo $v_member->member_designation?></td>
-                <td class="center"><?php echo $v_member->member_contact_no?></td>
-               
-          
+            
                 
                 
-                
-             
-                <td class="center"><?php echo $v_member->member_email?></td>
-                    
-             
-                    
-                    
-                   <td class="center"> <a class="btn btn-info" href="<?php echo base_url();?>super_admin/edit_member/<?php echo $v_member->member_id?>" title="Edit">
-                        <i class="icon-edit icon-white"></i>  
-                                                                
-                    </a></td>
-                    <td class="center"><a class="btn btn-danger" href="<?php echo base_url();?>super_admin/delete_member/<?php echo $v_member->member_id?>" title="Delete" onclick="return check_delete();">
-                        <i class="icon-trash icon-white"></i> 
-                       
-                    </a>
-                </td>
-            </tr>
-                <?php } ?>
-        </tbody>
+            <td class="center"> 
+                <a class="btn btn-info" href="{{url('admin/edit_member/'.$member->id)}}" title="Edit">
+                    <i class="icon-edit icon-white"></i>  
+                </a>
+                {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_member/delete/'.$member->id],'style'=>'display:inline'])!!}
+                {!! Form::button('<i class="icon-trash icon-white"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] ) !!}
+                {!! Form::close()!!}
+                </a>
+        </td>
+        </tr>
+            @endforeach
+    </tbody>
     </table>            
-</div>
+    </div>
 
                     <!-- content ends -->
                 </div><!--/#content.span10-->
