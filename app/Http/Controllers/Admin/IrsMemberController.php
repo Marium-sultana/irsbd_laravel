@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -108,7 +109,45 @@ class IrsMemberController extends Controller
      */
     public function update(Request $request, IrsMember $irsMember)
     {
-        //
+       // dd($request->all());
+
+        if($request->hasFile('member_image')){ 
+            // dd('true');
+            //@unlink(public_path('/storage/papers/'.$uploadedPaper->file_location));
+            Storage::disk('public')->delete('/member_images/' . $irsMember->member_image);
+ 
+             $fileName = time() .'_'.$request->member_image->getClientOriginalName();
+             $filePath = $request->member_image->storeAs('member_images', $fileName, 'public');
+            // $uploadedPaper->update(['file_location' => $fileName]);
+           // Storage::delete('/storage/app/public/papers/'.$fileName); 
+           $submittedData = [
+              
+             'member_name' => $request->member_name,
+              'member_email' => $request->member_email,
+              'member_profile_link' => $request->member_profile_link,
+              'member_contact_no' => $request->member_contact_no,
+              'member_designation' => $request->member_designation,
+              'member_image' => $fileName
+           
+       ];
+          }
+          else{
+             // dd('false');
+             $submittedData = [
+              
+                'member_name' => $request->member_name,
+                'member_email' => $request->member_email,
+                'member_profile_link' => $request->member_profile_link,
+                'member_contact_no' => $request->member_contact_no,
+                'member_designation' => $request->member_designation              
+           ];
+          }
+        // dd($submittedData,$irsMember);
+          
+         $irsMember->update([$submittedData]);
+         $irsMember = IrsMember::find($irsMember->id)->update($submittedData);
+ 
+         return redirect()->action('Admin\IrsMemberController@index')->with('success', "Member updated successfully");
     }
 
     /**

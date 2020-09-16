@@ -102,9 +102,9 @@
                             
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group" style="display:none" id="preview_div">
                         <div class="controls">
-                           <img id="previewImg" src="" alt="Preview Image"/> 
+                           <img id="previewImg" src="" alt="Preview Image" height="200" width="150"/> 
                             
                         </div>
                     </div>
@@ -155,6 +155,8 @@
 
             reader.readAsDataURL(file);
             }
+            //$("#preview_div").show();
+           $("#preview_div").css('display','block');
         }
 
 

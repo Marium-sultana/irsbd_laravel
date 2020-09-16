@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\EditorialTeam;
+
 
 class EditorialTeamController extends Controller
 {
@@ -14,7 +16,12 @@ class EditorialTeamController extends Controller
      */
     public function index()
     {
-        //
+         // $call_paper=[
+         //   'text'=>'hi'
+        //];
+        //$data = ['call_paper' => $call_paper];        
+
+        return view('admin.add_editorial_team');
     }
 
     /**
@@ -35,7 +42,10 @@ class EditorialTeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $editorialTeam = new EditorialTeam();
+        $editorialTeam->text = $request->text;
+        $editorialTeam->save();
+        return redirect()->action('Admin\EditorialTeamController@index')->with('success', "Add editorial team successfully");
     }
 
     /**
@@ -57,9 +67,7 @@ class EditorialTeamController extends Controller
      */
     public function edit($id)
     {
-        $call_paper =[];
-        $data = ['call_paper' => $call_paper];
-        return view('admin.add_editorial_team', $data);
+      
     }
 
     /**

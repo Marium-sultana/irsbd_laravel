@@ -15,7 +15,7 @@
                             <li><a class="ajax-link" href="{{url('admin/wise_word')}}"><i class="icon-picture"></i><span class="hidden-tablet"> Add Wise Word</span></a></li> 
                            <li><a class="ajax-link" href="{{url('admin/member')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Add Member</span></a></li>
                            <li><a class="ajax-link" href="{{url('admin/manage_member')}}"><i class="icon-edit"></i><span class="hidden-tablet"> Manage Member</span></a></li>
-                           <li><a class="ajax-link" href="{{url('admin/editorial_team/{id}')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Add Editorial Team</span></a></li>
+                           <li><a class="ajax-link" href="{{url('admin/editorial_team')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Add Editorial Team</span></a></li>
                         </ul>
 
                     </div><!--/.well -->

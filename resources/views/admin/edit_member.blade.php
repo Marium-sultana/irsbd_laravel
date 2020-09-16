@@ -96,10 +96,10 @@
         <label class="control-label" for="typeahead"> Image </label>
         <div class="controls">
 @if($irsMember->member_image)
-            <img id="previewImg" src="{{url('/')}}/public/storage/member_images/{{$irsMember->member_image}} " /> 
+            <img id="previewImg" src="{{url('/')}}/public/storage/member_images/{{$irsMember->member_image}} " height="200" width="150"/> 
         <!-- <img src='{{url($irsMember->member_image)}} ' /> -->
 @else
-     <img id="previewImg" src="" alt="Preview Image"/> 
+     <img id="previewImg" src="" alt="Preview Image" style="display:none" height="200" width="150"/> 
 @endif
         </div>
     </div>  
@@ -146,6 +146,8 @@
  
             reader.readAsDataURL(file);
         }
+        $("#previewImg").css('display','block');
+
     }
 </script>
 

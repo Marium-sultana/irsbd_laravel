@@ -90,10 +90,12 @@ Route::group(['prefix' => 'admin'],function(){
 
   Route::get('/manage_member', 'Admin\IrsMemberController@index');
   Route::get('/edit_member/{id}', 'Admin\IrsMemberController@edit');
-  Route::post('/edit_member/edit/{irsMember}',['uses'=>'Admin\UploadedPaperController@update','as'=>'irsMember-update']);
+  Route::post('/edit_member/edit/{irsMember}',['uses'=>'Admin\IrsMemberController@update','as'=>'irsMember-update']);
   Route::delete('/manage_member/delete/{id}', 'Admin\IrsMemberController@destroy');
 
-  Route::get('/editorial_team/{id}', 'Admin\EditorialTeamController@edit');
+  Route::get('/editorial_team', 'Admin\EditorialTeamController@index');
+  Route::post('/editorial_team', 'Admin\EditorialTeamController@store');
+
 });
 
 

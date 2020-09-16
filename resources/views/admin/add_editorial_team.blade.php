@@ -46,28 +46,31 @@
             
             
         <div class="box-content">
-            <form class="form-horizontal" enctype="multipart/form-data" action="super_admin/save_editorial_team" method="post">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+                 <ul>
+                    @foreach($errors->all() as $error)
+                       <li style="padding:10px">{{$error}}</li>
+                    @endforeach
+                 </ul>
+            </div>
+            @endif
+            <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/editorial_team')}}" method="post">
+            @csrf
                 <fieldset>
                     <legend></legend>
                  
                  <input type="hidden" class="span6 typeahead" id="typeahead"  name="text_id" value="1">
-                 
-                      <?php foreach ($call_paper as $v_paper) { ?>
              
                                          <div class="control-group">
                         <label class="control-label" for="typeahead">Text  </label>
                         <div class="controls">
                             
-                              <textarea class="cleditor" id="textarea2" rows="3" name="text"><?php echo $v_paper->text ; ?></textarea>
-                          
+                              <textarea class="cleditor" id="textarea2" rows="3" name="text"></textarea>
+        
                         </div>
                         
                     </div>
-                    
-                    
-              
-                
-                   <?php }?>
                     
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Save </button>
