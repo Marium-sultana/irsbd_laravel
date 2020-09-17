@@ -15,7 +15,7 @@ class UserPaperController extends Controller
 {
     public function index()
     {
-        $a_data = UserPaper::all('id','paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status');
+        $a_data = UserPaper::all('id','paper_title','file_location','cover_letter','agreement_letter','other_files','author_name','status','review','text');
         return view('admin.manage_papers', compact('a_data'));
     }
 

@@ -73,16 +73,20 @@
                   }
               ?></td>
 
-                <td class="center"><?php if( $a_paper->text==1)
-    {echo 'accepted';}
-elseif( $a_paper->text==2)
-    {echo 'Major';} 
-elseif( $a_paper->text==3)
-    {echo 'Minor';} 
-    elseif( $a_paper->text==4)
-    {echo 'Rejected';} 
-    else{ echo 'Unreviewed';}?></td>
-                  <td class="center"><?php echo $a_paper->text?></td>
+                <td class="center">
+                    @if( $a_paper->review==1)
+                        {{'accepted'}}
+                    @elseif( $a_paper->review==2)
+                        {{ 'Major'}} 
+                    @elseif( $a_paper->review==3)
+                        {{'Minor'}} 
+                    @elseif( $a_paper->review==4)
+                        {{'Rejected'}} 
+                    @else
+                        {{'Unreviewed'}}
+                    @endif
+                 </td>
+                  <td class="center">{{$a_paper->text}}</td>
                 <td class="center">
                     {!! Form::open(['method'=>'DELETE','url'=>['admin/manage_papers/delete/'.$a_paper->id],'style'=>'display:inline'])!!}
                         {!! Form::button('<i class="icon-trash icon-white"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] ) !!}
