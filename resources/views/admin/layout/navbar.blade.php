@@ -15,19 +15,19 @@
                     <!-- user dropdown starts -->
                     <div class="btn-group pull-right" >
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user"></i><span class="hidden-phone"> Marium Sultana</span>
+                            <i class="icon-user"></i><span class="hidden-phone"> {{Session::get('name')}}</span>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="http://localhost/irsbd/super_admin/logout">Logout</a></li>
+                            <li><a href="{{url('admin/logout')}}">Logout</a></li>
                         </ul>
                     </div>
                     <!-- user dropdown ends -->
 
                     <div class="top-nav nav-collapse">
                         <ul class="nav">
-                            <li><a href="http://localhost/irsbd/">Visit Site</a></li>
+                            <li><a href="{{url('/')}}">Visit Site</a></li>
                             <li>
 
                             </li>

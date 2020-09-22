@@ -49,7 +49,7 @@ Route::get('/contact', 'HomePageController@contact');
 Route::get('admin/login', 'Admin\AdminController@login');
 Route::post('admin/checkLogin', 'Admin\AdminController@checkLogin');
 
-
+Route::group(['middleware' => ['checkadminsession']], function () {
 Route::group(['prefix' => 'admin'],function(){
   Route::get('/', 'Admin\DashboardController@index');
 
@@ -100,7 +100,11 @@ Route::group(['prefix' => 'admin'],function(){
   Route::get('/editorial_team', 'Admin\EditorialTeamController@index');
   Route::post('/editorial_team', 'Admin\EditorialTeamController@store');
 
+  Route::get('/logout', 'Admin\AdminController@adminLogout');
+
 });
+});
+
 
 
 

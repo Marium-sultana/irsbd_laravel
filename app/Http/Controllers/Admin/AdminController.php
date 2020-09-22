@@ -73,6 +73,13 @@ class AdminController extends Controller
         }
     }
 
+    public function adminLogout()
+    {
+        session()->flush();
+        return redirect('/');
+
+    }
+
     /**
      * Display the specified resource.
      *
