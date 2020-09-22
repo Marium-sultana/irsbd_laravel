@@ -21,9 +21,26 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::get('/session',function (){
+//$session = [
+  //'2015' => '2014-15',
+  //'2016' => '2015-16', 
+//];
+
+//$student=[];
+
+//$student[0]['name'] = 'xyz';
+//$student[0]['year'] = '2015';
+//$student[0]['session'] = $session[$student[0]['year']];
+//$student[1]['name'] = 'xyz';
+//$student[1]['year'] = '2016';
+//$student[1]['session'] = $session[$student[1]['year']];
+
+//dd($student);
   echo '<pre>';
   print_r(Session::all());
-  print_r(Session::get('name'));
+  //print_r(Session::get('name'));
+  //$user = Session::get('user')['name'];
+  //print_r($user);
 
   // print_r(session()->all());
   // print_r(Session::token());

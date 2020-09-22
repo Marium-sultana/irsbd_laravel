@@ -59,10 +59,12 @@ class AdminController extends Controller
             //Session::put('username',$user->username);
             //Session::put('name',$user->id);
             session([
-                'admin_id' => $admin->id,
-                'name' => $admin->full_name,
-                'admin_email' => $admin->email_address
-
+				'admin' =>
+				[
+					'admin_id' => $admin->id,
+					'name' => $admin->full_name,
+					'admin_email' => $admin->email_address
+				]
             ]);
             return redirect('admin');
         }

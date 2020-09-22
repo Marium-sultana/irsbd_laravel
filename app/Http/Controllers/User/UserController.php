@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function login()
     {
-        if(!session()->has('user_id'))
+        if(!session()->has('user'))
             return view('user.user_login');
         else
             return redirect('/');
@@ -85,11 +85,13 @@ class UserController extends Controller
             //Session::put('username',$user->username);
             //Session::put('name',$user->id);
             session([
-                'user_id' => $user->id,
-                'name' => $user->name,
-                'user_email' => $user->email,
-                'username' => $user->username
-
+				'user' =>
+				[
+					'user_id' => $user->id,
+					'name' => $user->name,
+					'user_email' => $user->email,
+					'username' => $user->username
+				]
             ]);
             return redirect('user/submit_paper');
         }
