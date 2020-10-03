@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\IrsMember;
+
 
 class HomePageController extends Controller
 {
@@ -13,7 +15,17 @@ class HomePageController extends Controller
 
     public function member()
     {
-        return view('front.irs_member');
+        $designation_data = IrsMember::select('member_designation')->distinct()->orderByRaw( "FIELD(member_designation, 'Coordinator', 'Publication Division', 'Knowledge Sharing Division')")->get();
+        $data = [];
+        //$data = IrsMember::all('member_name','member_image');
+        $member_info = IrsMember::all();
+       foreach($member_info as $value){
+           $data[$value['member_designation']][]=$value;
+       }
+       // dd($data['Publication Division']['member_name']);
+        //dd($data['Publication Division'][0]['member_name']);
+       // dd($designation,$data);
+        return view('front.irs_member', compact('data','designation_data'));
     }
 
     public function editorial_team()
@@ -43,4 +55,5 @@ class HomePageController extends Controller
     {
         return view('front.contact');
     }
-}
+    }
+    

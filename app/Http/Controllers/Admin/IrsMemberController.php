@@ -71,7 +71,7 @@ class IrsMemberController extends Controller
         }
         
         $irsMember->save();
-        return redirect()->action('Admin\IrsMemberController@index')->with('success', "Paper submitted successfully");
+        return redirect()->action('Admin\IrsMemberController@index')->with('success', "Member Created successfully");
     }
 
     /**

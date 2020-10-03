@@ -31,7 +31,7 @@ class AdminController extends Controller
 
     public function login()
     {
-        if(!session()->has('admin_id'))
+        if(!session()->has('admin'))
         return view('admin.admin_login');
     else
         return redirect('/');

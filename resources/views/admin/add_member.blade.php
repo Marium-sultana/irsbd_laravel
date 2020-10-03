@@ -72,12 +72,12 @@
                         <div class="controls">
                             <select name="member_designation">
                                 <option>Select Working Area</option>
-                                <option value="1">Coordinator</option>
-                                <option value="2">Publication Division</option>
-                                <option value="3">Research Division</option>
-                                <option value="4">Finance Division</option>
-                                <option value="5">Knowledge Sharing Division</option>
-                                <option value="6">Technical Support Division</option>
+                                <option value="Coordinator">Coordinator</option>
+                                <option value="Publication Division">Publication Division</option>
+                                <option value="Research Division">Research Division</option>
+                                <option value="Finance Division">Finance Division</option>
+                                <option value="Knowledge Sharing Division">Knowledge Sharing Division</option>
+                                <option value="Technical Support Division">Technical Support Division</option>
                            
                                 
                             </select>
