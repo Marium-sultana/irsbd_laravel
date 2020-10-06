@@ -2,11 +2,10 @@
 @section('content')
 
 
+@foreach($data as $editorial_data)
+     {!! $editorial_data->text !!}
+@endforeach
 
-
-<?php foreach ($editorial_team as $v_word) { ?>
-     <?php echo $v_word->text ?>
-<?php } ?> 
 </p>
  </div>
    

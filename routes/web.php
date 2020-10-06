@@ -102,6 +102,7 @@ Route::group(['prefix' => 'admin'],function(){
   Route::put('/manage_issue/status/{id}', 'Admin\IssueController@status');
 
   Route::get('/call_paper', 'Admin\CallPaperController@index');
+  Route::post('/call_paper', 'Admin\CallPaperController@store');
 
   Route::get('/wise_word', 'Admin\WiseWordController@index');
   Route::post('/wise_word', 'Admin\WiseWordController@store');

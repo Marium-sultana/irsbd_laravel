@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\CallPaper;
+
 
 class CallPaperController extends Controller
 {
@@ -14,9 +16,10 @@ class CallPaperController extends Controller
      */
     public function index()
     {
-        $call_paper = [];
-        $data = ['call_paper' => $call_paper];
-        return view('admin.add_call_paper',$data);
+        //$call_paper = [];
+        //$data = ['call_paper' => $call_paper];
+       // DB::table('CallPaper')->where('id', 1)->update(['text' => "Updated Text"]);
+        return view('admin.add_call_paper');
     }
 
     /**
@@ -37,7 +40,21 @@ class CallPaperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $callPaper = new CallPaper();
+       // $callPaper->save();
+       // DB::table('call_papers')->where('id', 1)->update(['text' => "Updated Text"]);
+        $data = CallPaper::all()->first();
+        if(!empty($data)){
+            DB::table('call_papers')->where('id',$data->id)->update(['text' => $request->text]);
+            $msg = "Call paper updated successfully";
+        }else{
+            $callPaper->text = $request->text;
+            $callPaper->save();
+            $msg = "Call paper inserted successfully";
+        }
+        
+       // dd($data);
+        return redirect()->action('Admin\CallPaperController@index')->with('success', 'msg');
     }
 
     /**

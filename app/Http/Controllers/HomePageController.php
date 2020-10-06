@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\EditorialTeam;
 use App\IrsMember;
 
 
@@ -30,9 +31,9 @@ class HomePageController extends Controller
 
     public function editorial_team()
     {
-        $editorial_team = [];
-        $data = ['editorial_team' => $editorial_team];
-        return view('front.editorial_team', $data);
+        $data = EditorialTeam::all();
+        //dd($data);
+        return view('front.editorial_team', compact('data'));
     }
 
     public function current()
