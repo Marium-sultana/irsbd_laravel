@@ -46,15 +46,11 @@
             
             
         <div class="box-content">
-        @if(count($errors) > 0)
-            <div class="alert alert-danger" role="alert">
-                 <ul>
-                    @foreach($errors->all() as $error)
-                       <li style="padding:10px">{{$error}}</li>
-                    @endforeach
-                 </ul>
-            </div>
-            @endif
+        @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                             {{$message}}
+                        </div>
+                    @endif
             <form class="form-horizontal" enctype="multipart/form-data" action="{{url('admin/call_paper')}}" method="post">
             @csrf
                 <fieldset>
@@ -66,9 +62,11 @@
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Text  </label>
                         <div class="controls">
-                             <textarea class="cleditor" name="text" cols="40" rows="5" > </textarea>
-                             
-                          
+                             <textarea class="cleditor" name="text" cols="40" rows="5" >
+                                    @foreach($callPaper as $data)
+                                        {{$data->text}}
+                                    @endforeach
+                              </textarea>
                         </div>
                         
                     </div>

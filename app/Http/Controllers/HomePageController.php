@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\EditorialTeam;
 use App\IrsMember;
+use App\Issue;
+use App\UploadedPaper;
 
 
 class HomePageController extends Controller
@@ -38,11 +40,16 @@ class HomePageController extends Controller
 
     public function current()
     {
-        $all_issue = [];
-        $data = ['all_issue' => $all_issue];
-        $all_paper = [];
-        $paper = ['all_paper' => $all_paper];
-        return view('front.current', $data, $paper);
+       // $all_issue = [];
+        //$data = ['all_issue' => $all_issue];
+        //$all_paper = [];
+        //$paper = ['all_paper' => $all_paper];
+        
+        $issueData = Issue::select('id','issue_name','year')->where('status',1)->orderBy('created_at','desc')->first();
+        //$paperData = UploadedPaper::all();
+        $paperData = UploadedPaper::select('*')->where('issue_id',$issueData->id)->get();
+        //dd($paperData);
+        return view('front.current', compact('issueData','paperData'));
     }
 
     public function archive()

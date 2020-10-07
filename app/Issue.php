@@ -8,6 +8,6 @@ class Issue extends Model
 {
     public function uploadedPaper()
    {
-       return $this->belongsTo('App\UploadedPaper');
+       return $this->belongsTo('App\UploadedPaper','issue_id');
    }
 }

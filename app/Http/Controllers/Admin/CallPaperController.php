@@ -16,10 +16,8 @@ class CallPaperController extends Controller
      */
     public function index()
     {
-        //$call_paper = [];
-        //$data = ['call_paper' => $call_paper];
-       // DB::table('CallPaper')->where('id', 1)->update(['text' => "Updated Text"]);
-        return view('admin.add_call_paper');
+        $callPaper = CallPaper::all('text');
+        return view('admin.add_call_paper',compact('callPaper'));
     }
 
     /**
@@ -54,7 +52,7 @@ class CallPaperController extends Controller
         }
         
        // dd($data);
-        return redirect()->action('Admin\CallPaperController@index')->with('success', 'msg');
+        return redirect()->action('Admin\CallPaperController@index')->with('success', $msg);
     }
 
     /**
