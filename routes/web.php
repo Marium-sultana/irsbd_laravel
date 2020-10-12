@@ -55,6 +55,8 @@ Route::get('/irs_member', 'HomePageController@member');
 Route::get('/editorial_team', 'HomePageController@editorial_team');
 Route::get('/current', 'HomePageController@current');
 Route::get('/archive', 'HomePageController@archive');
+Route::get('/view_article/{id}', 'HomePageController@article');
+Route::get('/paper_detail/{id}', 'HomePageController@detail');
 
 Route::get('/user_registration', 'User\UserController@user_registration');
 Route::post('/user_registration', 'User\UserController@store');

@@ -54,9 +54,33 @@ class HomePageController extends Controller
 
     public function archive()
     {
-        return view('front.archive');
+       // $all_issue = [];
+       // $data = ['all_issue' => $all_issue];
+        $issueData = Issue::select('id','issue_name','year')->where('status',1)->orderBy('created_at','desc')->get();
+        $issueArray= [];
+        foreach($issueData as $info){
+            $issueArray[$info->year][] = $info;
+        }
+        //dd($issueArray);
+        return view('front.archive',compact('issueArray'));
     }
 
+    public function article($id)
+    {
+        //dd($id);
+        $issueData = Issue::select('id','issue_name','year')->where('id',$id)->first();
+        $paperData = UploadedPaper::select('*')->where('issue_id',$id)->get();
+
+        return view('front.view_article',compact('issueData','paperData'));
+        
+    }
+
+    public function detail($id)
+    {
+        $paperDetail = UploadedPaper::select('paper_title','author_name','abstract','file_location')->first();
+        return view('front.paper_detail',compact('paperDetail'));
+        
+    }
    
 
     public function contact()
