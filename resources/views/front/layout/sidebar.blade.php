@@ -5,10 +5,10 @@
 
 
                             <ul class="sidemenu">
-                                <li><a href="http://localhost/irsbd/">Home</a></li>
-                                <li><a href="http://localhost/irsbd/welcome/manuscript_submission">Manuscript Submission </a></li>
-                                <li><a href="http://localhost/irsbd/welcome/author_guidelines">Author Guidelines</a></li>
-                                <li><a href="http://localhost/irsbd/welcome/help_desk">Help Desk</a></li>
+                                <li><a href="{{url('/')}}">Home</a></li>
+                                <li><a href="{{url('/manuscript_submission')}}">Manuscript Submission </a></li>
+                                <li><a href="{{url('/author_guidelines')}}">Author Guidelines</a></li>
+                                <li><a href="{{url('/help_desk')}}">Help Desk</a></li>
                             </ul>
 
                         </div>

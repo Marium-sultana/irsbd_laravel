@@ -57,6 +57,10 @@ Route::get('/current', 'HomePageController@current');
 Route::get('/archive', 'HomePageController@archive');
 Route::get('/view_article/{id}', 'HomePageController@article');
 Route::get('/paper_detail/{id}', 'HomePageController@detail');
+Route::get('/manuscript_submission', 'HomePageController@manuscript');
+Route::get('/author_guidelines', 'HomePageController@guidelines');
+Route::get('/help_desk', 'HomePageController@help');
+
 
 Route::get('/user_registration', 'User\UserController@user_registration');
 Route::post('/user_registration', 'User\UserController@store');

@@ -16,6 +16,24 @@ class HomePageController extends Controller
         return view('front.home');
     }
 
+    public function manuscript()
+    {
+        return view('front.manuscript_submission');
+        
+    }
+
+    public function guidelines()
+    {
+        return view('front.author_guidelines');
+        
+    }
+
+    public function help()
+    {
+        return view('front.help_desk');
+        
+    }
+
     public function member()
     {
         $designation_data = IrsMember::select('member_designation')->distinct()->orderByRaw( "FIELD(member_designation, 'Coordinator', 'Publication Division', 'Knowledge Sharing Division')")->get();
