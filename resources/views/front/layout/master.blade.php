@@ -15,6 +15,7 @@
             <div id="body">
 
                 @include('front.layout.sidebar')
+               
                                   
                       @include('front.layout.menu')                
                                             

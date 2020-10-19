@@ -27,14 +27,12 @@ class BannerImageController extends Controller
         $bannerImage = new BannerImage();
 
         if($request->hasFile('selected_file')){
-            $fileName = $request->selected_file->getClientOriginalName();
-            $filePath = $request->selected_file->storeAs('banner',$fileName,'public');
-            $bannerImage->image_location = '/storage/banner/' .$fileName;
+            $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
+            $filePath = $request->selected_file->storeAs('banner', $fileName, 'public');
+            $bannerImage->image_location = $fileName; 
             $bannerImage->save();
         }
        // dd($request->seleced_file);
-       
-       
        //$bannerImage::find(1)->update(['image_location'=>'marium']);
        return redirect()->action('Admin\BannerImageController@index');
     }

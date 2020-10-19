@@ -4,9 +4,9 @@
 
 
 <div id="breadcrumb">
-    <a href="#">Home</a> &gt;
-    <a href="#" class="hierarchyLink">User</a> &gt;
-    <a href="#" class="current">Register</a></div>
+    <a href="{{url('/')}}">Home</a> &gt;
+    <a href="{{url('user/login')}}" class="hierarchyLink">User</a> &gt;
+    <a href="{{url('/user_registration')}}" class="current">Register</a></div>
 
 <h2>Register</h2>
 

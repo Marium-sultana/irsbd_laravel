@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\BannerImage;
 use App\User;
+use App\CallPaper;
+use App\WiseWord;
 
 
 class UserController extends Controller
@@ -41,7 +44,10 @@ class UserController extends Controller
 
      public function user_registration()
      {
-        return view('front.user_registration');
+        $issueImage = BannerImage::select('id','image_location')->orderBy('created_at','desc')->first();
+        $wiseWord = WiseWord::select('id','text','writer')->orderBy('created_at','desc')->first();
+        $callPaper = CallPaper::all('text');
+        return view('front.user_registration',compact('issueImage','wiseWord','callPaper'));
          
      }
      /**

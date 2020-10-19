@@ -27,9 +27,9 @@ class CoverImageController extends Controller
         $coverImage = new CoverImage();
 
         if($request->hasFile('selected_file')){
-            $fileName = $request->selected_file->getClientOriginalName();
-            $filePath = $request->selected_file->storeAs('cover_image',$fileName,'public');
-            $coverImage->image_location = '/storage/cover_image/' .$fileName;
+            $fileName = time() .'_'.$request->selected_file->getClientOriginalName();
+            $filePath = $request->selected_file->storeAs('cover_image', $fileName, 'public');
+            $coverImage->image_location = $fileName; 
             $coverImage->save();
         }
        // dd($request->seleced_file);

@@ -13,57 +13,40 @@
 
                         </div>
                         <div class="block" id="sidebarUser">
-                            <span class="blockTitle">Current Issue</span>                                 <p align="justify"> <img  src="http://localhost/irsbd/images/Cover_page.png" width="160" height="200" />                                </ul>
+                            <span class="blockTitle">Current Issue</span>
+                            <p align="justify"> 
+                            @if($issueImage->image_location)
+                                <img id="previewImg" src="{{url('/')}}/public/storage/banner/{{$issueImage->image_location}} " width="160" height="200" /> 
+                                @else
+                                    <img id="previewImg" src="" alt="Preview Image" style="display:none" height="200" width="150"/>                               
+                            @endif
+                                 </ul>
                                 <br>
                                     <br>
                                         <span class="blockTitle">Wise Words</span>
+                                        @if($wiseWord->text)
+                                        <hp>&quot;{{$wiseWord->text}}&quot;</p>
+                                            <p class="align-right">-- {{ $wiseWord->writer}}</p>
 
-                                                                                    <hp>&quot;"Men are disturbed, not by the things that happen, but by their opinion of the things that happen."&quot;</p>
-                                            <p class="align-right">-- Epictetus</p>
-
-                                         
+                                         @endif
                                         </div>
                                         </div>
                                         </div>
-                <div id="sidebar">
+                                     <div id="sidebar">
                                         <div id="rightSidebar">
 
                                             <div class="block" id="sidebarUser">
                                                 <span class="blockTitle"> &nbsp; Call For Paper</span>
 
-                                                <p  margin-left="2px">                                                        <p align="justify">&quot; “Good day, dear Author!
-
-IJIR is published three times in a year on April 30 (first issue), August 31 (second issue) and December 31 (third issue). IRS encourages quick peer-reviewing of all submitted quality papers in the broad field of Science, Business and Economics, Engineering and Technology because it aims rapid international exposure of your research works.
-
-Please submit your quality research works, and also encourage your colleagues, friends and students to sign up and to consider their research works to be peer-reviewed with IJIR.&quot;</p>
-
+                                                <p  margin-left="2px">
+                                                @foreach($callPaper as $paper)                                                        
+                                                <p align="justify">&quot;{!! $paper->text !!}&quot;</p>
+                                                @endforeach
 
                                                      </p>
                                                 <p>  </p>
 
                                             </div>
-                                            
-                                            <div class="block" id="sidebarUser">
-                                                <span class="blockTitle">User</span>
-
-                                                <form method="post" action="http://localhost/irsbd/user/check_user_login">
-                                                    <table>
-                                                        <tr>
-                                                            <td><label for="sidebar-username">Email</label></td>
-                                                            <td><input type="text" id="sidebar-username" name="email" value="" size="12" maxlength="32" class="textField" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><label for="sidebar-password">Password</label></td>
-                                                            <td><input type="password" id="sidebar-password" name="password" value="" size="12" class="textField" /></td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td colspan="2"><input type="submit" value="Login" class="button" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </form>
-                                            </div>
-                                            
                                             <div class="block" id="sidebarNavigation">
                                                 <span class="blockTitle"> &nbsp; Translate</span>
 
@@ -81,3 +64,22 @@ Please submit your quality research works, and also encourage your colleagues, f
 
                                         </div>
                                       </div>
+
+
+<script type="text/javascript">
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+        $("#previewImg").css('display','block');
+
+    }
+</script>
