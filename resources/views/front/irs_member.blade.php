@@ -2,9 +2,6 @@
 @section('content')
 
 
-
-
-
 <div id=""> <a name="IJIR (ISSN: ) "></a>  
   <p align="Justify">
     Innovative Research Syndicate (IRS) is a research group those who are integrating education and research for improving research outcomes both nationally and internationally. IRS members lead the way in collaborative research, training, policy initiatives, seminar and research publication. 

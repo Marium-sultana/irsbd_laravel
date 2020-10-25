@@ -25,26 +25,26 @@
             </div>
         </div>
         <h3>
-                <?php
-                    //$msg=$this->session->userdata('message');
-                    $msg = '';
-                    if($msg)
-                    {
-                        echo $msg;
-                        //$this->session->unset_userdata('message');
-                    }
-                ?>
-            </h3>
+            <?php
+                //$msg=$this->session->userdata('message');
+                $msg = '';
+                if($msg)
+                {
+                    echo $msg;
+                    //$this->session->unset_userdata('message');
+                }
+            ?>
+        </h3>
         <div class="box-content">
-        @if(count($errors) > 0)
-            <div class="alert alert-danger" role="alert">
-                 <ul>
-                    @foreach($errors->all() as $error)
-                       <li style="padding:10px">{{$error}}</li>
-                    @endforeach
-                 </ul>
-            </div>
-            @endif
+            @if(count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li style="padding:10px">{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             <form class="form-horizontal" enctype="multipart/form-data" action="{{url('user/submit_paper')}}" method="post">
             @csrf
 
@@ -99,11 +99,6 @@
                         </div>
                     </div>
                    
-                    
-                             
-                    
-                   
-                    
                      <div class="control-group">
                         <label class="control-label" for="typeahead">Select File </label>
                         <div class="controls">

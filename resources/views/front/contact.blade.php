@@ -3,7 +3,8 @@
 
 
 
-If you need any help, please contact to: <br> 	</font>
+If you need any help, please contact to: <br> 	
+</font>
 
 	<br>Prof Dr Mohammad Atikur Rahman
 	<br>Editor-in-Chief

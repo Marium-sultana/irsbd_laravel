@@ -6,30 +6,26 @@
 <div id="breadcrumb">
     <a href="{{url('/')}}">Home</a> &gt;
     <a href="{{url('user/login')}}" class="hierarchyLink">User</a> &gt;
-    <a href="{{url('/user_registration')}}" class="current">Register</a></div>
+    <a href="{{url('/user_registration')}}" class="current">Register</a>
+</div>
 
 <h2>Register</h2>
-
-
 <div id="content">
-@if($message = Session::get('success'))
-                        <div class="alert alert-success">
-                             {{$message}}
-                        </div>
-                    @endif
+    @if($message = Session::get('success'))
+        <div class="alert alert-success">
+                {{$message}}
+        </div>
+    @endif
 
 <form id="registerForm" method="post" action="{{url('/user_registration')}}">
     @csrf
     <p>Fill in this form to register with this site.</p>
-
      <h3>Profile</h3>
-
          <table  width="100%">
-
             <tr valign="top">
                 <td width="20%">
                    
-                        Username *
+                    Username *
                 </td>
                 <td width="80%" class="value">
                     <input type="text" name="username" value="" id="username" size="20" maxlength="32" class="textField" />
@@ -41,8 +37,7 @@
             </tr>
             <tr valign="top">
                 <td >
-                   
-                        Password *
+                    Password *
                 </td>
                 <td class="value"><input type="password" name="password" value="" id="password" size="20" class="textField" /></td>
             </tr>
@@ -55,8 +50,7 @@
 
             <tr valign="top">
                 <td>
-                    
-                        Full Name *
+                    Full Name *
                 </td>
                 <td class="value">
                     <input type="text" id="firstName" name="name" value="" size="20" maxlength="40" class="textField" />
@@ -64,7 +58,7 @@
             </tr>
             <tr valign="top">
                 <td>
-                        Gender 
+                    Gender 
                 </td>
                 <td class="value">
                     <select name="gender" id="gender" size="1" class="selectMenu">
@@ -79,7 +73,7 @@
             <tr valign="top">
                 <td >
                    
-                        Email *
+                    Email *
                 </td>
                 <td class="value">
                     <input type="text" id="email" name="email" value="" size="30" maxlength="90" class="textField" /> 
@@ -88,7 +82,7 @@
             <tr valign="top">
                 <td >
                    
-                       Additional Email *
+                    Additional Email *
                 </td>
                 <td class="value">
                     <input type="text" id="email" name="additional_email" value="" size="30" maxlength="90" class="textField" /> 
@@ -96,7 +90,7 @@
             </tr>
             <tr valign="top">
                 <td >  
-                        Phone 
+                    Phone 
                 </td>
                 <td class="value">
                     <input type="text" name="phone" id="phone" value="" size="15" maxlength="24" class="textField" />
@@ -105,7 +99,7 @@
             <tr valign="top">
                 <td >
                    
-                        Country
+                    Country
                 </td>
                 <td class="value">
                     <input type="text" name="country" id="country" value="" size="15" maxlength="24" class="textField" />
@@ -125,7 +119,10 @@
 
     <div id="privacyStatement">
         <h3>Privacy Statement</h3>
-        <p>The names and email addresses entered in this journal site will be used exclusively for the stated purposes of this journal and will not be made available for any other purpose or to any other party.</p>
+        <p>
+            The names and email addresses entered in this journal site will be used exclusively for the stated purposes 
+            of this journal and will not be made available for any other purpose or to any other party.
+        </p>
     </div>
 
 

@@ -1,8 +1,6 @@
 <meta charset="utf-8">
-        <title>Admin Panel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- The styles -->
         <link  href="http://localhost/irsbd/asset/css/bootstrap-cerulean.css" rel="stylesheet">
         <style type="text/css">

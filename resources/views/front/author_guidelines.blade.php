@@ -3,99 +3,143 @@
 
 
 
-<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;line-height:
-normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;
-font-family:"Times New Roman","serif";color:#002060'>Author's Guidelines<o:p></o:p></span></b></p>
+<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;line-height:normal'>
+      <b style='mso-bidi-font-weight:normal'>
+            <span style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#002060'>Author's Guidelines<o:p></o:p>
+            </span>
+      </b>
+</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            Manuscripts submitted to 
+            <a name="OLE_LINK4"></a>
+            <a name="OLE_LINK3">
+                  <span style='mso-bookmark:OLE_LINK4'>
+                        International Journal of Innovative Research 
+                  </span>
+            </a>
+            (IJIR) should conform to the guidelines indicated below. Before you submit, please study the author
+            checklist provided at the manuscript submission. Two MS Word (.doc) files, one for 
+            <a href="public/storage/cover_letters/Cover_Letter.docx">
+                  <b>cover letter</b>
+            </a> 
+            and another for main manuscript, should be prepared according to the author guidelines.<o:p></o:p>
+      </span>
+</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:normal'>
+      <b>
+            <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+                  mso-fareast-font-family:"Times New Roman";color:#002060'>
+                  Cover Letter
+            </span>
+      </b>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+            "Times New Roman";color:#002060'><o:p></o:p>
+      </span>
+</p>
 
 <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-mso-fareast-font-family:"Times New Roman"'>Manuscripts submitted to <a
-name="OLE_LINK4"></a><a name="OLE_LINK3"><span style='mso-bookmark:OLE_LINK4'>International
-Journal of Innovative Research </span></a>(IJIR) should conform to the
-guidelines indicated below. Before you submit, please study the author
-checklist provided at the manuscript submission. Two MS Word (.doc) files, one
-for <a href="public/storage/cover_letters/Cover_Letter.docx">
-      <b>cover letter</b></a> and another for main manuscript, should be prepared according
-to the author guidelines.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:normal'><b><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-mso-fareast-font-family:"Times New Roman";color:#002060'>Cover Letter</span></b><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman";color:#002060'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-text-align:justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'>The covering letter should be written by the corresponding
-author indicating how the manuscript is suitable for publication in International
-Journal of Innovative Research (IJIR) and also mentioning the unique merits of
-research outcomes and frontier research linkage for further research work. All
-authors names are to be included in the letter (preferably along with their signatures)
-stating the article has not been published elsewhere or communicated to any
-other publication apart from International Journal of Innovative Research. If
-the manuscript is authored only by a student, it is requested that he/she
-obtain the approval of the institution department prior to submitting the
-manuscript.<o:p></o:p></span></p>
+      text-align:justify;text-justify:inter-ideograph;line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            The covering letter should be written by the corresponding
+            author indicating how the manuscript is suitable for publication in International
+            Journal of Innovative Research (IJIR) and also mentioning the unique merits of
+            research outcomes and frontier research linkage for further research work. All
+            authors names are to be included in the letter (preferably along with their signatures)
+            stating the article has not been published elsewhere or communicated to any
+            other publication apart from International Journal of Innovative Research. If
+            the manuscript is authored only by a student, it is requested that he/she
+            obtain the approval of the institution department prior to submitting the
+            manuscript.<o:p></o:p>
+      </span>
+</p>
 
 <p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><b style='mso-bidi-font-weight:
-normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-mso-fareast-font-family:"Times New Roman";color:#002060'>Manuscript Preparation
-Guidelines<o:p></o:p></span></b></p>
+      justify;text-justify:inter-ideograph;line-height:normal'>
+      <b style='mso-bidi-font-weight:normal'>
+            <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+                  mso-fareast-font-family:"Times New Roman";color:#002060'>
+                  Manuscript Preparation Guidelines<o:p></o:p>
+            </span>
+      </b>
+</p>
 
 <p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+      justify;text-justify:inter-ideograph;line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            <o:p>&nbsp;</o:p>
+      </span>
+</p>
 
 <p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'>The language of all manuscripts must be in English (either
-American or British standard, but not the mixture of both). </span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Authors whose
-native language is not English are encouraged to have their manuscripts read by
-a native English-speaking colleague before submission.<o:p></o:p></span></p>
+      justify;text-justify:inter-ideograph;line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            The language of all manuscripts must be in English (either
+            American or British standard, but not the mixture of both). 
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>
+            Authors whose native language is not English are encouraged to have their manuscripts read by
+            a native English-speaking colleague before submission.<o:p></o:p>
+      </span>
+</p>
 
-<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'>The length of the manuscript should not exceed 25 pages </span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'>(including
-references, tables and appendices)</span><span style='font-size:12.0pt;
-font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>.
-Manuscript containing more than 25 pages words will be returned to the
-author(s) to abridge. </span><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Short
-communications should not exceed 4 printed pages. </span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'>Manuscript should be typed in double-space (including
-footnotes and references) on one side of the paper only preferably A4 (</span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'>8.5'' x 11'') </span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
-"Times New Roman"'>with wide margins (</span><span style='font-size:12.0pt;
-font-family:"Times New Roman","serif"'>top 1.2'', bottom 0.6'' left 0.8'',
-right 0.6'')</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-mso-fareast-font-family:"Times New Roman"'>. Authors are urged to write as
-concisely as possible, but not at the expense of clarity.</span><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p></o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:justify;text-justify:inter-ideograph;
+      line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            The length of the manuscript should not exceed 25 pages </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>
+            (including references, tables and appendices)
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>.
+            Manuscript containing more than 25 pages words will be returned to the
+            author(s) to abridge. </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>
+            Short communications should not exceed 4 printed pages. 
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            Manuscript should be typed in double-space (including footnotes and references) on one side of the paper only 
+            preferably A4 (
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>8.5'' x 11'') 
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            with wide margins (
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>
+            top 1.2'', bottom 0.6'' left 0.8'',right 0.6'')
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman"'>
+            . Authors are urged to write as concisely as possible, but not at the expense of clarity.
+      </span>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p></o:p>
+      </span>
+</p>
 
-<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Manuscripts
-should be presented in the following order: (i) title page, (ii) abstract and
-key words, (iii) text, (iv) acknowledgments, (v) references, (vi) appendices,
-and all sub-heading words (Abstract, Introduction, Materials and Methods /
-Methodology, Results and Discussion, References) should be presented in title
-case, left margin, 12 point type and bold.<o:p></o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:justify;text-justify:inter-ideograph;
+      line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p>
+      </span>
+</p>
 
-<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:normal'><span
-style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:justify;text-justify:inter-ideograph;
+      line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>
+            Manuscripts should be presented in the following order: (i) title page, (ii) abstract and
+            key words, (iii) text, (iv) acknowledgments, (v) references, (vi) appendices,
+            and all sub-heading words (Abstract, Introduction, Materials and Methods /
+            Methodology, Results and Discussion, References) should be presented in title
+            case, left margin, 12 point type and bold.<o:p></o:p>
+      </span>
+</p>
+
+<p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:justify;text-justify:inter-ideograph;
+      line-height:normal'>
+      <span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p>
+      </span>
+</p>
 
 <p class=MsoNormal style='margin-bottom:0mm;margin-bottom:.0001pt;text-align:
 justify;text-justify:inter-ideograph;line-height:normal'><b><span

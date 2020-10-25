@@ -26,7 +26,7 @@
             </div>
         </div>
         <h3>
-                            </h3>
+        </h3>
         <div class="box-content">
             <form class="form-horizontal" enctype="multipart/form-data" action="http://localhost/irsbd/super_user/save_submitted_paper" method="post">
                 <fieldset>
@@ -80,11 +80,6 @@
                         </div>
                     </div>
                    
-                    
-                             
-                    
-                   
-                    
                      <div class="control-group">
                         <label class="control-label" for="typeahead">Select File </label>
                         <div class="controls">

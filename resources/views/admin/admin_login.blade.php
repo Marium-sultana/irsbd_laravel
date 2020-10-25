@@ -45,9 +45,8 @@
 </head>
 
 <body>
-		<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row-fluid">
-		
 			<div class="row-fluid">
 				<div class="span12 center login-header">
 					<h2>Welcome to Admin Login</h2>
@@ -57,18 +56,18 @@
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
-                                            <h3 style="color: red"> 
-                                                <?php
-                                                   // $msg=$this->session->userdata('message');
-                                                   $msg=''; 
-                                                   if($msg)
-                                                    {
-                                                        echo $msg;
-                                                        $this->session->unset_userdata('message');
-                                                    }
-                                                
-                                                ?>
-                                            </h3>
+						<h3 style="color: red"> 
+							<?php
+								// $msg=$this->session->userdata('message');
+								$msg=''; 
+								if($msg)
+								{
+									echo $msg;
+									$this->session->unset_userdata('message');
+								}
+							
+							?>
+						</h3>
 					</div>
                     <form class="form-horizontal" action="{{url('admin/checkLogin')}}" method="post">
                     @csrf
@@ -88,18 +87,14 @@
                                 <input class="input-large span10" name="admin_password" id="password" type="password" />
 							</div>
 							<div class="clearfix"></div>
-
-							
-							
-
 							<p class="center span5">
-							<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary">Login</button>
 							</p>
 						</fieldset>
 					</form>
 				</div><!--/span-->
 			</div><!--/row-->
-				</div><!--/fluid-row-->
+		</div><!--/fluid-row-->
 		
 	</div><!--/.fluid-container-->
 
@@ -178,5 +173,5 @@
 	<script src="{{asset('public/asset/js/charisma.js')}}"></script>
 	
 		
-</body>
+	</body>
 </html>

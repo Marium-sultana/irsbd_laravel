@@ -46,57 +46,52 @@
 
 <body>
 		<div class="container-fluid">
-		<div class="row-fluid">
-		
 			<div class="row-fluid">
-				<div class="span12 center login-header">
-					<h2>Change Password</h2>
-				</div><!--/span-->
-			</div><!--/row-->
+		
+				<div class="row-fluid">
+					<div class="span12 center login-header">
+						<h2>Change Password</h2>
+					</div><!--/span-->
+				</div><!--/row-->
 			
-			<div class="row-fluid">
-				<div class="well span5 center login-box">
-					<div class="alert alert-info">
-                                            <h3 id="msg" style="color: red"> 
-                                                <?php
-                                                   // $msg=$this->session->userdata('message');
-                                                   $msg = '';
-                                                    if($msg)
-                                                    {
-                                                        echo $msg;
-                                                        //$this->session->unset_userdata('message');
-                                                    }
-                                                
-                                                ?>
-                                            </h3>
-					</div>
-                                    <form class="form-horizontal" action="super_user/check_password" method="post">
-						<fieldset>
-							<div class="input-prepend" title="Enter Old Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span>
-								<input autofocus class="input-large span10" name="old_pass" id="old_pass" type="text"  />
-							</div>
-							<div class="clearfix"></div>
+				<div class="row-fluid">
+					<div class="well span5 center login-box">
+						<div class="alert alert-info">
+							<h3 id="msg" style="color: red"> 
+								<?php
+									// $msg=$this->session->userdata('message');
+									$msg = '';
+									if($msg)
+									{
+										echo $msg;
+										//$this->session->unset_userdata('message');
+									}
+								
+								?>
+							</h3>
+						</div>
+                        <form class="form-horizontal" action="super_user/check_password" method="post">
+							<fieldset>
+								<div class="input-prepend" title="Enter Old Password" data-rel="tooltip">
+									<span class="add-on"><i class="icon-lock"></i></span>
+									<input autofocus class="input-large span10" name="old_pass" id="old_pass" type="text"  />
+								</div>
+								<div class="clearfix"></div>
 
-							<div class="input-prepend" title="Enter New Password" data-rel="tooltip">
-                                <span class="add-on"><i class="icon-lock"></i></span>
-								<input class="input-large span10" name="new_pass" id="new_pass" type="text"  />
-							</div>
-							<div class="clearfix"></div>
-
-							
-							
-
-							<p class="center span5">
-							<button id="btn_update" type="submit" class="btn btn-primary">Update Password</button>
-							</p>
-						</fieldset>
-					</form>
-				</div><!--/span-->
-			</div><!--/row-->
-				</div><!--/fluid-row-->
-		
-	</div><!--/.fluid-container-->
+								<div class="input-prepend" title="Enter New Password" data-rel="tooltip">
+									<span class="add-on"><i class="icon-lock"></i></span>
+									<input class="input-large span10" name="new_pass" id="new_pass" type="text"  />
+								</div>
+								<div class="clearfix"></div>
+								<p class="center span5">
+									<button id="btn_update" type="submit" class="btn btn-primary">Update Password</button>
+								</p>
+							</fieldset>
+						</form>
+					</div><!--/span-->
+				</div><!--/row-->
+			</div><!--/fluid-row-->	
+		</div><!--/.fluid-container-->
 
 	<!-- external javascript
 	================================================== -->

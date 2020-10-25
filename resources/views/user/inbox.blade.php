@@ -5,12 +5,7 @@
 <!----content start---->
 
 <div class="box-content">
-    
 
-
-
-
-    
 <style>
 button.accordion {
     background-color: #eee;
@@ -54,49 +49,50 @@ div.panel {
 {?>
 
 
-<button class="accordion"><?php 
-if( $v_paper->text==1)
-    {echo 'CONGRATULATIONS!!! Your paper '. $a . ' is ACCEPTED';}
-elseif( $v_paper->text==2)
-    { $a= $v_paper->paper_title;
-        echo 'Sorry! Your paper '. $a . ' needs MAJOR correction';} 
-elseif( $v_paper->text==3)
-    { $a= $v_paper->paper_title;
-        echo 'Sorry! Your paper '. $a . ' needs MINOR correction';} 
-    elseif( $v_paper->text==4)
-    { $a= $v_paper->paper_title;
-        echo 'Sorry! Your paper '. $a . ' is  REJECTED';} 
-    
-    else{
-        $a= $v_paper->paper_title;
-        echo "your paper  $v_paper->paper_title  is under REVIEW";}
-    ?>
-</button>
-<div class="panel">
-  <p><?php echo $v_paper->text;?></p>
-</div>
+    <button class="accordion">
+        <?php 
+        if( $v_paper->text==1)
+            {echo 'CONGRATULATIONS!!! Your paper '. $a . ' is ACCEPTED';}
+        elseif( $v_paper->text==2)
+            { $a= $v_paper->paper_title;
+                echo 'Sorry! Your paper '. $a . ' needs MAJOR correction';} 
+        elseif( $v_paper->text==3)
+            { $a= $v_paper->paper_title;
+                echo 'Sorry! Your paper '. $a . ' needs MINOR correction';} 
+            elseif( $v_paper->text==4)
+            { $a= $v_paper->paper_title;
+                echo 'Sorry! Your paper '. $a . ' is  REJECTED';} 
+            
+            else{
+                $a= $v_paper->paper_title;
+                echo "your paper  $v_paper->paper_title  is under REVIEW";}
+            ?>
+    </button>
+    <div class="panel">
+        <p><?php echo $v_paper->text;?></p>
+    </div>
 <?php }?>
 
 
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
+    var acc = document.getElementsByClassName("accordion");
+    var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-	  if (panel.style.maxHeight){
-  	  panel.style.maxHeight = null;
-    } else {
-  	  panel.style.maxHeight = panel.scrollHeight + 'px';
-    } 
-  }
-}
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+            } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            } 
+        }
+    }
 </script>
 </tbody>
 </table>
-    </div>
+</div>
 
         
  @endsection       
