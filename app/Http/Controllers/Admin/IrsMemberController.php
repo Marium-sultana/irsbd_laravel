@@ -41,15 +41,15 @@ class IrsMemberController extends Controller
     {
         $this->validate($request,[
              'member_name' => 'required',
-             'member_contact_no' => 'required',
-             'member_email' => 'required',
-             'member_image' => 'required',
-             'member_profile_link' => 'required'
+             //'member_contact_no' => 'required',
+            // 'member_email' => 'required',
+             'member_image' => 'required'
+            // 'member_profile_link' => 'required'
         ],[
              'member_name.required' => 'Name field must be required',
-             'member_contact_no.required' => 'Contact field must be required',
-             'member_email.required' => 'Email field must be required',
-             'member_profile_link.required' => 'Profile Link field must be required'
+            // 'member_contact_no.required' => 'Contact field must be required',
+             //'member_email.required' => 'Email field must be required',
+             //'member_profile_link.required' => 'Profile Link field must be required'
              
         ]);
 

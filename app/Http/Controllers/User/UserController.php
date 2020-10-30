@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\BannerImage;
@@ -59,7 +59,22 @@ class UserController extends Controller
 
      public function store(Request $request)
      {
+        $this->validate($request,[
+            'username'=>'required',
+            'password'=>'required',
+            'name'=>'required',
+            'gender'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'country'=>'required'
+        ],[
+           'username.required'=>'Username Field is required',
+           'password.required'=>'password Field is required',
+           'email.required'=>'password Field is required',
+           'name.required'=>'password Field is required'
+        ]);
          $user = new User();
+        
          $user->username = $request->username;
          $user->password = md5($request->password);
          $user->name = $request->name;

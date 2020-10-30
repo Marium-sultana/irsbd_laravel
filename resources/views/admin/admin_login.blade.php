@@ -58,7 +58,7 @@
 					<div class="alert alert-info">
 						<h3 style="color: red"> 
 							<?php
-								// $msg=$this->session->userdata('message');
+								//$msg=$this->session->userdata('message');
 								$msg=''; 
 								if($msg)
 								{
@@ -69,6 +69,11 @@
 							?>
 						</h3>
 					</div>
+					@if($message = Session::get('danger'))
+                <div class="alert alert-danger">
+                    {{$message}}
+                </div>
+            @endif
                     <form class="form-horizontal" action="{{url('admin/checkLogin')}}" method="post">
                     @csrf
 						<fieldset>

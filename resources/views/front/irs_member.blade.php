@@ -28,7 +28,7 @@
         @else
             <img id="previewImg" src="" alt="Preview Image" style="display:none" height="200" width="150"/> 
         @endif
-        <div class="center">{{$member->member_name}}</div>
+        <div class="center">{!! $member->member_name !!}</div>
       </div>
       @endforeach
    </div>

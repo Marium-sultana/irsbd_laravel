@@ -6,8 +6,8 @@
      {!! $editorial_data->text !!}
 @endforeach
 
-</p>
- </div>
+
+
    
 
 

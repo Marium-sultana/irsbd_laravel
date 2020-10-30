@@ -17,7 +17,6 @@ class CreateUserPapersTable extends Migration
             $table->increments('id');
             $table->string('paper_title');
             $table->string('author_name');
-            $table->string('uploaded_by');
             $table->integer('user_id')->unsigned(); 
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('file_location');

@@ -16,7 +16,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.admin_login');
+        
     }
 
     /**
@@ -32,9 +33,9 @@ class AdminController extends Controller
     public function login()
     {
         if(!session()->has('admin'))
-        return view('admin.admin_login');
-    else
-        return redirect('/');
+            return view('admin.admin_login');
+        else
+            return redirect('/');
     }
 
     /**
@@ -66,11 +67,14 @@ class AdminController extends Controller
 					'admin_email' => $admin->email_address
 				]
             ]);
+            $msg = "Successfully log in";
             return redirect('admin');
         }
 
         else{
-            return redirect('admin/checkLogin');
+            $msg = "Try again";
+
+            return redirect()->action('Admin\AdminController@login')->with('danger', $msg);
 
         }
     }
